@@ -15,6 +15,10 @@ Solution for binarySearch.io
 #934. [Arithmetic Sequence Queries (M) 1500](./code/934.txt) <br />
 
 ---
+### DFS
+#924. [Common Reachable Node (M-) 1400](./code/924.txt) <br />
+
+---
 ### Tree
 #927. [Tree with Distinct Parities(E) 900](./code/927.txt) <br />
 
