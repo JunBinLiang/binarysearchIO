@@ -1,0 +1,52 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int[] B, int[] C) {
+        int res=Integer.MAX_VALUE;
+        TreeSet<Integer>treeset1=new TreeSet<>();
+        TreeSet<Integer>treeset2=new TreeSet<>();
+        for(int i:A){
+            treeset1.add(i);
+        }
+        for(int i:C){
+            treeset2.add(i);
+        }
+
+        int dis1[]=new int[B.length];
+        int dis2[]=new int[B.length];
+        Arrays.fill(dis1,Integer.MAX_VALUE);
+        Arrays.fill(dis2,Integer.MAX_VALUE);
+        for(int i=0;i<B.length;i++){
+            Integer low1=treeset1.floor(B[i]);
+            Integer high1=treeset1.ceiling(B[i]);
+
+            if(low1!=null){
+                if(Math.abs(low1-B[i])<dis1[i]){
+                    dis1[i]=Math.abs(low1-B[i]);
+                }
+            }
+            if(high1!=null){
+                if(Math.abs(high1-B[i])<dis1[i]){
+                    dis1[i]=Math.abs(high1-B[i]);
+                }
+            }
+
+            Integer low2=treeset2.floor(B[i]);
+            Integer high2=treeset2.ceiling(B[i]);
+
+            if(low2!=null){
+                if(Math.abs(low2-B[i])<dis2[i]){
+                    dis2[i]=Math.abs(low2-B[i]);
+                }
+            }
+            if(high2!=null){
+                if(Math.abs(high2-B[i])<dis2[i]){
+                    dis2[i]=Math.abs(high2-B[i]);
+                }
+            }
+            res=Math.min(res,dis1[i]+dis2[i]);
+        }
+
+        return res;
+    }
+}
