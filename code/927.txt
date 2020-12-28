@@ -1,0 +1,28 @@
+import java.util.*;
+
+/**
+ * public class Tree {
+ *   int val;
+ *   Tree left;
+ *   Tree right;
+ * }
+ */
+class Solution {
+    int res=0;
+    public int solve(Tree root) {
+        dfs(root);
+        return res;
+    }
+
+    public int dfs(Tree root){
+        if(root==null)return 0;
+
+        int l=dfs(root.left);
+        int r=dfs(root.right);
+
+        if(root.left!=null&&root.right!=null){
+            if((l%2)+(r%2)==1)res++;
+        }
+        return root.val+l+r;
+    }
+}
