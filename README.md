@@ -15,5 +15,9 @@ Solution for binarySearch.io
 #934. [Arithmetic Sequence Queries (M) 1500](./code/934.txt) <br />
 
 ---
+### Tree
+#927. [Tree with Distinct Parities(E) 900](./code/927.txt) <br />
+
+---
 ### Sliding Window
 #935. [Number of Sublists That Don't Contain Target List (M) 1500](./code/935.txt) <br />
