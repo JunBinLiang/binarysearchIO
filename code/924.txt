@@ -1,0 +1,46 @@
+import java.util.*;
+
+class Solution {
+    Map<Integer,List<Integer>>map=new HashMap<>();
+    Set<Integer>set1=new HashSet<>();
+    Set<Integer>set2=new HashSet<>();
+    public boolean solve(int[][] A, int a, int b) {
+        for(int pair[]:A){
+            int v1=pair[0],v2=pair[1];
+            if(!map.containsKey(v1))map.put(v1,new ArrayList<>());
+            if(!map.containsKey(v2))map.put(v2,new ArrayList<>());
+            map.get(v2).add(v1);
+
+        }
+
+        set1.add(a);
+        dfs1(a);
+        set2.add(b);
+        dfs2(b);
+
+        for(Integer i:set1){
+            if(set2.contains(i))return true;
+        }
+        return false;
+    }
+
+    public void dfs1(int root){
+        List<Integer>next=map.get(root);
+
+        for(int c:next){
+            if(set1.contains(c))continue;
+            set1.add(c);
+            dfs1(c);
+        }
+    }
+
+    public void dfs2(int root){
+        List<Integer>next=map.get(root);
+
+        for(int c:next){
+            if(set2.contains(c))continue;
+            set2.add(c);
+            dfs2(c);
+        }
+    }
+}
