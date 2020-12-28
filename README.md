@@ -25,3 +25,7 @@ Solution for binarySearch.io
 ---
 ### Sliding Window
 #935. [Number of Sublists That Don't Contain Target List (M) 1500](./code/935.txt) <br />
+
+---
+### Ordered Map
+#926. [Virtual Array (H-) 1600](./code/926.txt) <br />
