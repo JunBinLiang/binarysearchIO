@@ -1,0 +1,39 @@
+import java.util.*;
+
+class VirtualArray {
+    TreeMap<Integer,Integer>treemap=new TreeMap<>();
+    public VirtualArray() {
+
+    }
+
+    public void set(int start, int end) {
+        Integer low=treemap.floorKey(start);
+
+        if(low!=null){
+            if(start<=treemap.get(low)){
+                start=low;
+            }
+        }
+        
+        while(true){//keep expanding
+            Integer ceil=treemap.ceilingKey(start);
+            if(ceil==null||ceil>end){
+                treemap.put(start,end);
+                break;
+            }
+            else{
+                int e=treemap.get(ceil);
+                end=Math.max(end,e);
+                treemap.remove(ceil);
+            }
+        }
+    }
+
+    public boolean get(int idx) {
+        Integer low=treemap.floorKey(idx);
+        if(low==null)return false;
+        int end=treemap.get(low);
+        if(idx<=end)return true;
+        return false;
+    }
+}
