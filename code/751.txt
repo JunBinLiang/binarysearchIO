@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        if(A.length==0)return 0;
+        int sum=0;
+        Arrays.sort(A);
+        for(int i=0;i<A.length;i++){
+            if(A[i]<0){
+                A[i]=-A[i];k--;
+            }
+            if(k==0)break;
+        }
+
+        if(k%2==1){
+            Arrays.sort(A);
+            A[0]=-A[0];
+        }
+
+        for(int i:A){
+            sum+=i;
+        }
+
+        return sum;
+
+    }
+}
