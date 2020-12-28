@@ -12,6 +12,7 @@ Solution for binarySearch.io
 
 ---
 ### Binary Search
+#925. [Minimize Absolute Difference of Three Numbers (M) 1500](./code/925.txt) <br />
 #934. [Arithmetic Sequence Queries (M) 1500](./code/934.txt) <br />
 
 ---
