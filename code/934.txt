@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int[][] q) {
+        int res=0;
+        List<int[]>list=new ArrayList<>();
+        for(int i=0;i<A.length-1;i++){
+            int dif=A[i+1]-A[i];
+            int j=i+1;
+            while(j<A.length&&A[j]-A[j-1]==dif){
+                j++;
+            }
+            //[i,j-1]
+            list.add(new int[]{i,j-1});
+            i=j-2;
+        }
+
+        for(int pair[]:q){
+            if(pair[0]==pair[1]||pair[1]-pair[0]==1){
+                res++;continue;
+            }
+
+            int pos=-1;
+            int l=0,r=list.size()-1;
+            while(l<=r){
+                int mid=l+(r-l)/2;
+                if(pair[0]>=list.get(mid)[0]){
+                    pos=mid;
+                    l=mid+1;
+                }
+                else{
+                    r=mid-1;
+                }
+            }
+            if(pos==-1)continue;
+            if(pair[1]<=list.get(pos)[1])res++;
+        }
+        return res;
+    }
+}
