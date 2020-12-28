@@ -1,0 +1,38 @@
+import java.util.*;
+
+class Solution {
+    int mod=1000000007;
+    public int solve(int[] A, int[] target) {
+        if(target.length==0)return 0;
+        long res=0;
+        Set<Integer>set=new HashSet<>();
+        for(int i:target){
+            set.add(i);
+        }
+
+        Queue<Integer>q=new LinkedList<>();
+        Map<Integer,Integer>map=new HashMap<>();
+        for(int i=0;i<A.length;i++){
+            q.add(A[i]);
+            if(set.contains(A[i])){
+                if(!map.containsKey(A[i]))map.put(A[i],0);
+                map.put(A[i],map.get(A[i])+1);
+            }
+
+            while(map.size()==set.size()){
+                int f=q.poll();
+                if(!map.containsKey(f))continue;
+                map.put(f,map.get(f)-1);
+                if(map.get(f)==0)map.remove(f);
+            }
+            
+            //System.out.println(q.size());
+            res+=q.size();
+            res%=mod;
+        }
+
+
+
+        return (int)(res);
+    }
+}
