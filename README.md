@@ -17,7 +17,7 @@ Solution for binarySearch.io
 
 ---
 ### DFS
-#46. [Sinking Islands (M) 1500](./code/46.txt) <br />
+#49. [Sinking Islands (M) 1500](./code/49.txt) <br />
 #924. [Common Reachable Node (M-) 1400](./code/924.txt) <br />
 
 ---
