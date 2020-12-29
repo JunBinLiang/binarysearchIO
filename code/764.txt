@@ -1,0 +1,85 @@
+只有三种case 考虑，不remove，remove max，remove min
+其他情况都会使答案非最优（需要想想和证明）
+
+import java.util.*;
+
+class Solution {
+    PriorityQueue<int[]>minheap=new PriorityQueue<>((a,b)->{
+        return a[1]-b[1];
+    });
+    PriorityQueue<int[]>maxheap=new PriorityQueue<>((a,b)->{
+        return b[1]-a[1];
+    });
+    public int solve(int[] A) {
+        if(A.length<2)return A.length;
+        int res=0;
+        for(int i=0;i<A.length;i++){
+            minheap.add(new int[]{i,A[i]});
+            maxheap.add(new int[]{i,A[i]});
+        }
+
+        List<Integer>list=new ArrayList<>();
+        for(int i=0;i<A.length;i++){
+            list.add(A[i]);
+        }
+
+        int a=calculate(list);
+        res=Math.max(res,a);
+        int top1[]=maxheap.poll();
+        if(top1[1]!=maxheap.peek()[1]){
+            list=new ArrayList<>();
+            for(int i=0;i<A.length;i++){
+                if(A[i]==top1[1])continue;
+                list.add(A[i]);
+            }
+            int b=calculate(list);
+            res=Math.max(res,b);
+        }
+
+        int top2[]=minheap.poll();
+        if(top2[1]!=minheap.peek()[1]){
+            list=new ArrayList<>();
+            for(int i=0;i<A.length;i++){
+                if(A[i]==top2[1])continue;
+                list.add(A[i]);
+            }
+            int b=calculate(list);
+            res=Math.max(res,b);
+        }
+
+        return res;
+    }
+
+
+    public int calculate(List<Integer>A){
+        int res=0;
+        int mx=Integer.MIN_VALUE;
+        int mn=Integer.MAX_VALUE;
+        Queue<Integer>q1=new LinkedList<>();
+        Queue<Integer>q2=new LinkedList<>();
+        for(int i:A){
+            mx=Math.max(mx,i);
+            mn=Math.min(mn,i);
+        }
+
+        for(int i=0;i<A.size();i++){
+            if(A.get(i)==mn){
+                q1.add(i);
+            }
+            if(A.get(i)==mx){
+                q2.add(i);
+            }
+        }
+
+        for(int i=0;i<A.size();i++){
+            while(q1.size()>0&&q1.peek()<i)q1.poll();
+            while(q2.size()>0&&q2.peek()<i)q2.poll();
+            if(q1.size()==0||q2.size()==0)break;
+
+            int dis=Math.max(q1.peek(),q2.peek());
+            res+=(A.size()-dis);
+
+        }
+        return res;
+    }
+}
