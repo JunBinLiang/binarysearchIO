@@ -45,5 +45,9 @@ Solution for binarySearch.io
 #747. [Minimum Time to Finish K Tasks(M+) 1600](./code/747.txt) <br />
 
 ---
+### Trie
+#748. [Maximum XOR Queries (H) 1800](./code/748.txt) <br />
+
+---
 ### Implementation
 #125. [Repeated Addition (E) 800](./code/125.txt) <br />
