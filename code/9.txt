@@ -1,0 +1,22 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A) {
+        if(A.length==0)return 0;
+        int dp[]=new int[A.length];
+        dp[0]=A[0];
+
+        for(int i=1;i<A.length;i++){
+            dp[i]=Math.max(dp[i-1],A[i]+get(dp,i-2));
+            dp[i]=Math.max(dp[i],A[i]);
+            dp[i]=Math.max(dp[i],0);
+        }
+
+        return Math.max(dp[A.length-1],0);
+    }
+
+    public int get(int dp[],int i){
+        if(i<0)return 0;
+        return dp[i];
+    }
+}
