@@ -12,6 +12,7 @@ Solution for binarySearch.io
 ---
 ### Greedy
 #397. [K Unique String (M-) 1300](./code/397.txt) <br />
+#682. [Delete From the Ends and Reinsert to Target (M) 1500](./code/682.txt) <br />
 #751. [Largest Sum After K Negations (E) 900](./code/751.txt) <br />
 
 ---
