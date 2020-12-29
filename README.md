@@ -8,6 +8,10 @@ Solution for binarySearch.io
 #433. [Swap Consecutive Pair of Even Numbers(E) 900](./code/433.txt) <br />
 
 ---
+### Prefix Sum
+#929. [Index with Equal Left and Right Sums (E) 900](./code/929.txt) <br />
+
+---
 ### DP
 #9. [Largest Sum of Non-Adjacent Numbers (M) 1500](./code/9.txt) <br />
 #217. [Longest Common Subsequence of Three Strings(H) 1800](./code/217.txt) <br />
