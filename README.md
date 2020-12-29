@@ -31,3 +31,7 @@ Solution for binarySearch.io
 ---
 ### Ordered Map
 #926. [Virtual Array (H-) 1600](./code/926.txt) <br />
+
+---
+### Sort
+#747. [Minimum Time to Finish K Tasks(M+) 1600](./code/747.txt) <br />
