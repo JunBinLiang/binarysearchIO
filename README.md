@@ -2,6 +2,11 @@
 Solution for binarySearch.io
 
 
+
+---
+### Array
+#433. [Swap Consecutive Pair of Even Numbers(E) 900](./code/433.txt) <br />
+
 ---
 ### DP
 #9. [Largest Sum of Non-Adjacent Numbers (M) 1500](./code/9.txt) <br />
