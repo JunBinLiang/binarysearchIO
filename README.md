@@ -14,6 +14,11 @@ Solution for binarySearch.io
 #751. [Largest Sum After K Negations (E) 900](./code/751.txt) <br />
 
 ---
+### Stack
+#427. [Parentheses Grouping(E) 900](./code/427.txt) <br />
+
+
+---
 ### Binary Search
 #925. [Minimize Absolute Difference of Three Numbers (M) 1500](./code/925.txt) <br />
 #934. [Arithmetic Sequence Queries (M) 1500](./code/934.txt) <br />
