@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Solution {
+    Set<Integer>all=new HashSet<>();
+    Set<Integer>set=new HashSet<>();
+    public int[] solve(int[][] edges) {
+        //acylic graph, just find all the root
+        for(int pair[]:edges){
+            int v1=pair[0],v2=pair[1];
+            set.add(v2);
+            all.add(v1);all.add(v2);
+        }
+
+        List<Integer>res=new ArrayList<>();
+
+        for(Integer v:all){
+            if(!set.contains(v)){
+                res.add(v);
+            }
+        }
+
+        int ans[]=new int[res.size()];
+        for(int i=0;i<ans.length;i++){
+            ans[i]=res.get(i);
+        }
+
+        return ans;
+    }
+}
