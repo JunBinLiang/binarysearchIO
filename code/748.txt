@@ -1,0 +1,91 @@
+import java.util.*;
+
+
+class Solution {
+    int v=0;
+    int limit=0;
+    public int[] solve(int[] A, int[][] queries) {
+        // Write your code here
+        int min=Integer.MAX_VALUE;
+        int res[]=new int[queries.length];
+        Trie root=new Trie();
+        
+        for(int i=0;i<A.length;i++){
+            min=Math.min(min,A[i]);
+            insert(root,31,A[i]);
+        }
+        
+        
+        for(int i=0;i<queries.length;i++){
+            int pair[]=queries[i];
+            int x=pair[0];
+            limit=pair[1];
+            if(limit<min){
+                res[i]=-1;
+                continue;
+            }
+            v=0;
+            q(root,31,0,x);
+            res[i]=v;
+        }
+        
+        return res;
+    }
+    
+    public void q(Trie root,int index,int cur,int x){
+        
+        if(index<0){
+            v=cur;
+            return;
+        }
+        
+        int bit=-1;
+        if((x&(1<<index))==0)bit=0;
+        else bit=1;
+        //System.out.println(index+"  "+bit+"  "+root.min);
+        if(bit==0){
+            if(root.childs[1]!=null&&root.childs[1].min<=limit){
+                q(root.childs[1],index-1,root.childs[1].min,x);
+            }
+            else{
+                q(root.childs[0],index-1,root.childs[0].min,x);
+            }
+        }else{
+             if(root.childs[0]!=null&&root.childs[0].min<=limit){
+                q(root.childs[0],index-1,root.childs[0].min,x);
+            }
+            else{
+                q(root.childs[1],index-1,root.childs[1].min,x);
+            }
+        }
+        
+        
+    }
+    
+    
+    public void insert(Trie root,int index,int val){
+        if(index<0){
+            root.min=Math.min(root.min,val);
+            return;
+        }
+        int bit=-1;
+        if((val&(1<<index))==0)bit=0;
+        else bit=1;
+        
+        if(bit==0){
+            if(root.childs[0]==null)root.childs[0]=new Trie();
+            root.min=Math.min(root.min,val);
+            insert(root.childs[0],index-1,val);
+        }else{
+            if(root.childs[1]==null)root.childs[1]=new Trie();
+            root.min=Math.min(root.min,val);
+            insert(root.childs[1],index-1,val);
+        }
+        
+    }
+    
+    class Trie{
+         int min=Integer.MAX_VALUE;
+         Trie childs[]=new Trie[2];
+    }
+}
