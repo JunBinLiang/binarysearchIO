@@ -36,6 +36,7 @@ Solution for binarySearch.io
 
 ---
 ### Tree
+#305. [Tree Traversal(M-) 1200](./code/305.txt) <br />
 #927. [Tree with Distinct Parities(E) 900](./code/927.txt) <br />
 
 
