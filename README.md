@@ -29,6 +29,10 @@ Solution for binarySearch.io
 #924. [Common Reachable Node (M-) 1400](./code/924.txt) <br />
 
 ---
+### Graph
+#950. [Minimum Starting Nodes to Visit Graph (M-) 1400](./code/950.txt) <br />
+
+---
 ### Tree
 #927. [Tree with Distinct Parities(E) 900](./code/927.txt) <br />
 
