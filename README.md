@@ -49,5 +49,9 @@ Solution for binarySearch.io
 #748. [Maximum XOR Queries (H) 1800](./code/748.txt) <br />
 
 ---
+### Fenwick Tree
+#865. [Delete Integers In Ascending Order (H) 1800](./code/865.txt) <br />
+
+---
 ### Implementation
 #125. [Repeated Addition (E) 800](./code/125.txt) <br />
