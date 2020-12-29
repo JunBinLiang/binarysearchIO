@@ -32,6 +32,11 @@ Solution for binarySearch.io
 ### Tree
 #927. [Tree with Distinct Parities(E) 900](./code/927.txt) <br />
 
+
+---
+### Two Pointer
+#21. [Subsequence Strings (E) 1000](./code/21.txt) <br />
+
 ---
 ### Sliding Window
 #935. [Number of Sublists That Don't Contain Target List (M) 1500](./code/935.txt) <br />
