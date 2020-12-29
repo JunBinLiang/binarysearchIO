@@ -1,0 +1,40 @@
+
+import java.util.*;
+
+
+class Solution {
+    int graph[][];
+    int color[];
+    boolean res=false;
+    public boolean solve(int[][] graph) {
+        // Write your code here
+        this.graph=graph;
+        color=new int[300];
+        for(int i=0;i<graph.length;i++){
+            
+            if(color[i]==0){
+                color[i]=1;
+                dfs(i,2);
+            }
+            
+        }
+        //for(int i:color)System.out.println(i);
+        return res;
+    }
+    
+    public void dfs(int root,int col){
+        int next=1;
+        if(col==1)next=2;
+        int childs[]=graph[root];
+        for(int c:childs){
+            if(color[c]==0){
+                color[c]=col;
+                dfs(c,next);
+            }else{
+                if(c!=root&&color[c]==color[root]){
+                    res=true;
+                }
+            }
+        }
+    }
+}
