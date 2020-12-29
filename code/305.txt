@@ -1,0 +1,36 @@
+import java.util.*;
+
+/**
+ * public class Tree {
+ *   int val;
+ *   Tree left;
+ *   Tree right;
+ * }
+ */
+class Solution {
+    int res=-1;
+    Map<Tree,Tree>map=new HashMap<>();//[tree,parent]
+    public int solve(Tree root, String[] moves) {
+        dfs(null,root);
+
+        for(String s: moves){
+            if(s.equals("RIGHT")){
+                root=root.right;
+            }
+            else if(s.equals("LEFT")){
+                root=root.left;
+            }
+            else{
+                root=map.get(root);
+            }
+        }
+        return root.val;
+    }
+
+    public void dfs(Tree parent,Tree root){
+        if(root==null)return;
+        map.put(root,parent);
+        dfs(root,root.left);
+        dfs(root,root.right);
+    }
+}
