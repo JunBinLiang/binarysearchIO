@@ -32,6 +32,7 @@ Solution for binarySearch.io
 
 ---
 ### Graph
+#308. [Parity Jump(H) 1800](./code/308.txt) <br />
 #950. [Minimum Starting Nodes to Visit Graph (M-) 1400](./code/950.txt) <br />
 
 ---
