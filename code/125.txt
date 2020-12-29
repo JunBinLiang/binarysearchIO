@@ -1,0 +1,15 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int n) {
+        while(n>=10){
+            String num=n+"";
+            n=0;
+            for(int i=0;i<num.length();i++){
+                int d=num.charAt(i)-'0';
+                n+=d;
+            }
+        }
+        return n;
+    }
+}
