@@ -5,6 +5,7 @@ Solution for binarySearch.io
 ---
 ### DP
 #9. [Largest Sum of Non-Adjacent Numbers (M) 1500](./code/9.txt) <br />
+#217. [Longest Common Subsequence of Three Strings(H) 1800](./code/217.txt) <br />
 #595. [Increasing Subsequences of Size K (H-) 1700](./code/595.txt) <br />
 #936. [Shortest Window Substring in Order (H) 1800](./code/936.txt) <br />
 
