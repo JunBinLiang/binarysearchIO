@@ -1,0 +1,22 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s) {
+        int res=0;
+        for(int i=0;i<s.length();i++){
+            int j=i+1;
+            int k=i+1;
+            while(j<s.length()&&s.charAt(j)>=s.charAt(j-1)){
+                j++;
+            }
+            while(k<s.length()&&s.charAt(k)<=s.charAt(k-1)){
+                k++;
+            }
+
+            int mx=Math.max(j,k);
+            res++;
+            i=mx-1;
+        }
+        return res;
+    }
+}
