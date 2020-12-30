@@ -1,0 +1,71 @@
+import java.util.*;
+
+/**
+ * public class Tree {
+ *   int val;
+ *   Tree left;
+ *   Tree right;
+ * }
+ */
+
+/**
+ * class LLNode {
+ *   int val;
+ *   LLNode next;
+ * }
+ */
+class Solution {
+    boolean res=false;
+    List<Integer>list=new ArrayList<>();
+    public boolean solve(Tree root, LLNode head) {
+        StringBuilder str=new StringBuilder();
+        while(head!=null){
+            list.add(head.val);
+            head=head.next;
+        }
+        int pre[]=kmppre(list);
+        dfs(root,pre,0);
+        return res;
+    }
+
+    public void dfs(Tree root,int pre[],int i){
+        if(i>=pre.length){
+            res=true;
+            return;
+        }
+        if(root==null)return;
+        int listval=list.get(i);
+        if(listval==root.val){
+            dfs(root.left,pre,i+1);
+            dfs(root.right,pre,i+1);
+        }
+        else{
+            if(i==0){
+                dfs(root.left,pre,0);
+                dfs(root.right,pre,0);
+            }
+            else{
+                dfs(root,pre,pre[i-1]);
+            }
+        }
+
+    }
+
+    public int[] kmppre(List<Integer> pattern){
+        int pre[]=new int[pattern.size()];
+        int l=0,r=1;
+        while(r<pattern.size()){
+            if(pattern.get(r)==pattern.get(l)){
+                pre[r]=l+1;
+                l++;
+                r++;
+            }else{
+                if(l==0)r++;
+                else{
+                    l=pre[l-1];
+                }
+            }
+        }
+        return pre;
+    }
+}
