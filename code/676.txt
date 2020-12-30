@@ -1,0 +1,31 @@
+import java.util.*;
+
+class Solution {
+    int res=0;
+    boolean visit[][];
+    public int solve(int[][] matrix) {
+        visit=new boolean[matrix.length][matrix[0].length];
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                if(matrix[i][j]==0||visit[i][j])continue;
+                dfs(matrix,i,j,0);
+            }
+        }
+
+        return res;
+    }
+
+    public void dfs(int matrix[][],int i,int j,int cur){
+        if(i<0||j<0||i>=matrix.length||j>=matrix[0].length)return;
+        if(matrix[i][j]==0)return;
+        res=Math.max(res,cur+matrix[i][j]);
+        int coin=matrix[i][j];
+        visit[i][j]=true;
+        matrix[i][j]=0;
+        dfs(matrix,i+1,j,cur+coin);
+        dfs(matrix,i-1,j,cur+coin);
+        dfs(matrix,i,j+1,cur+coin);
+        dfs(matrix,i,j-1,cur+coin);
+        matrix[i][j]=coin;
+    }
+}
