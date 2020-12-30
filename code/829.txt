@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    boolean visit[][];Queue<int[]>q;
+    public int[][] solve(int[][] mat) {
+        int n=mat.length;
+        int m=mat[0].length;
+        visit=new boolean[n][m];
+        q=new LinkedList<>();
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(mat[i][j]==0){
+                    q.add(new int[]{i,j,0});
+                    visit[i][j]=true;
+                }
+            }
+        }
+        while(q.size()!=0){
+            int pair[]=q.poll();
+            int r=pair[0],c=pair[1],level=pair[2];
+            mat[r][c]=level;
+            add(mat,r+1,c,level+1);
+            add(mat,r-1,c,level+1);
+            add(mat,r,c+1,level+1);
+            add(mat,r,c-1,level+1);
+        }
+        return mat;
+    }
+
+    public void add(int mat[][],int i,int j,int level){
+        if(i<0||j<0||i>=mat.length||j>=mat[0].length)return;
+        if(visit[i][j])return;
+        visit[i][j]=true;
+        q.add(new int[]{i,j,level});
+    }
+}
