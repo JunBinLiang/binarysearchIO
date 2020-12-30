@@ -1,0 +1,17 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String[] A) {
+        int res=0;
+        for(int i=0;i<A.length;i++){
+            int cnt=0;
+            int j=i;
+            while(j<A.length&&A[j].charAt(0)==A[i].charAt(0)){
+                j++;cnt++;
+            }
+            i=j-1;
+            res=Math.max(res,cnt);
+        }
+        return res;
+    }
+}
