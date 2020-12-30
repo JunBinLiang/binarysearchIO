@@ -42,6 +42,7 @@ Solution for binarySearch.io
 ---
 ### DFS
 #49. [Sinking Islands (M) 1500](./code/49.txt) <br />
+#676. [Collecting Coins Sequel (H-) 1700](./code/676.txt) <br />
 #924. [Common Reachable Node (M-) 1400](./code/924.txt) <br />
 
 ---
