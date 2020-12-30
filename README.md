@@ -92,4 +92,5 @@ Solution for binarySearch.io
 
 ---
 ### String
+#826. [Monotonous String Groups (E) 1000](./code/826.txt) <br />
 #894. [Find a Linked List in a Binary Tree (H-) 1700](./code/894.txt) <br />
