@@ -1,0 +1,38 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int pos) {
+        int res=A[pos];
+
+        int l=pos-1,r=pos+1;
+        int min=A[pos];
+        int size=1;
+        while(l>=0&&r<A.length){
+            if(A[l]>A[r]){
+                size++;
+                min=Math.min(A[l--],min);
+                res=Math.max(res,min*size);
+            }
+            else{
+                size++;
+                min=Math.min(A[r++],min);
+                res=Math.max(res,min*size);
+            }
+        }
+
+        while(l>=0){
+            min=Math.min(min,A[l--]);
+            size++;
+            res=Math.max(res,min*size);
+        }
+
+        while(r<A.length){
+            min=Math.min(min,A[r++]);
+            size++;
+            res=Math.max(res,min*size);
+        }
+
+
+        return res;
+    }
+}
