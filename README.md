@@ -46,6 +46,10 @@ Solution for binarySearch.io
 #924. [Common Reachable Node (M-) 1400](./code/924.txt) <br />
 
 ---
+### BFS
+#829. [Peak Heights (M) 1500](./code/829.txt) <br />
+
+---
 ### Graph
 #95. [Detecting an Odd Length Cycle(H-) 1700](./code/95.txt) <br />
 #308. [Parity Jump(H) 1800](./code/308.txt) <br />
