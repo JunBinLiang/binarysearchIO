@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int target) {
+        if(target==0)return 0;
+        int res=Integer.MAX_VALUE;
+        Map<Integer,Integer>map=new HashMap<>();
+        int total=0;
+        for(int i:A)total+=i;
+        int t=total-target;
+
+        if(t==0)res=A.length;
+
+        int sum=0;
+        for(int i=0;i<A.length;i++){
+            sum+=A[i];
+            if(sum==t){
+                res=Math.min(res,A.length-(i+1));
+            }
+
+            if(map.containsKey(sum-t)){
+                int len=i-map.get(sum-t);
+                res=Math.min(res,A.length-len);
+            }
+            
+
+            if(!map.containsKey(sum)){
+                map.put(sum,i);
+            }
+        }
+
+
+        if(res==Integer.MAX_VALUE)return -1;
+        return res;
+    }
+}
