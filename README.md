@@ -64,6 +64,7 @@ Solution for binarySearch.io
 
 ---
 ### Sliding Window
+#827. [Window Queries (H-) 1700](./code/827.txt) <br />
 #935. [Number of Sublists That Don't Contain Target List (M) 1500](./code/935.txt) <br />
 
 ---
