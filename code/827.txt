@@ -1,0 +1,58 @@
+import java.util.*;
+
+class Solution {
+    public int[] solve(int[] A, int[] q, int w) {
+        int res[]=new int[q.length];
+        int dp[]=new int[100010];
+        Map<Integer,List<int[]>>map=new HashMap<>();
+        for(int i=0;i<A.length;i++){
+            if(!map.containsKey(A[i])){
+                map.put(A[i],new ArrayList<>());
+            }
+            map.get(A[i]).add(new int[]{i,Math.min(A.length-1,i+w-1)});
+        }
+
+        Map<Integer,Stack<int[]>>map1=new HashMap<>();
+
+        for(Integer key:map.keySet()){
+            List<int[]>list=map.get(key);
+            Stack<int[]>stack=new Stack<>();
+            for(int pair[]:list){
+                if(stack.size()==0){
+                    stack.push(pair);
+                }
+                else{
+                    if(pair[0]>stack.peek()[1]){
+                        stack.push(pair);
+                    }
+                    else{
+                        stack.peek()[1]=Math.max(pair[1],stack.peek()[1]);
+                    }
+                }
+            }
+            map1.put(key,stack);
+
+        }
+
+        for(int i=0;i<q.length;i++){
+            if(!map1.containsKey(q[i]))continue;
+            if(dp[q[i]]!=0){
+                res[i]=dp[q[i]];
+                continue;
+            }
+           
+            Stack<int[]>stack=map1.get(q[i]);
+            while(stack.size()!=0){
+                int pair[]=stack.pop();
+                int len=pair[1]-Math.max(0,pair[0]-w+1)+1;
+                if(len-w+1<=0)continue;
+                dp[q[i]]+=(len-w+1);
+            }
+            res[i]=dp[q[i]];
+
+        }
+
+
+        return res;
+    }
+}
