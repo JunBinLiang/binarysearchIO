@@ -85,3 +85,7 @@ Solution for binarySearch.io
 ---
 ### Implementation
 #125. [Repeated Addition (E) 800](./code/125.txt) <br />
+
+---
+### String
+#894. [Find a Linked List in a Binary Tree (H-) 1700](./code/894.txt) <br />
