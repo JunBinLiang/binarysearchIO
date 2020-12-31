@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+    public boolean solve(String s, String t) {
+        return sol(s,t)|sol(t,s);
+    }
+
+    public boolean sol(String s,String t){
+        if(isp(t,0,t.length()-1))return true;
+        int l=0,r=s.length()-1;
+        while(s.charAt(l)==t.charAt(r)&&l<r){
+            l++;
+            r--;
+        }
+        
+        if(isp(t,l,r))return true;
+
+        return false;
+    }
+
+    public boolean isp(String s,int l,int r){
+        while(l<r){
+            if(s.charAt(l)!=s.charAt(r))return false;
+            l++;r--;
+        }
+        return true;
+    }
+}
