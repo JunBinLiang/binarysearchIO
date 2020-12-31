@@ -55,6 +55,7 @@ Solution for binarySearch.io
 ---
 ### BFS
 #47. [Shortest Bridge (H-) 1600](./code/47.txt) <br />
+#572. [Group Points (M) 1500](./code/572.txt) <br />
 #829. [Peak Heights (M) 1500](./code/829.txt) <br />
 
 ---
