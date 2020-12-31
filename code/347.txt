@@ -1,0 +1,46 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s) {
+        List<Integer>A=new ArrayList<>();
+        int res=Integer.MAX_VALUE;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='1'){
+                A.add(i);
+            }
+        }
+        
+        int sum=0;
+        int pre[]=new int[A.size()];
+        for(int i=0;i<A.size();i++){
+            sum+=A.get(i);
+            pre[i]=sum;
+        }
+
+        for(int i=0;i<A.size();i++){
+            //Let's fix the point at i
+            int right=pre[A.size()-1]-pre[i];
+            int left=get(pre,i-1);
+            
+            int index=A.get(i);
+            int lcnt=i;
+            int rcnt=A.size()-(i+1);
+
+            
+            int a=index-lcnt;
+            int b=index-1;
+
+            int c=index+1;
+            int d=index+rcnt;
+            res=Math.min(res,((a+b)*lcnt/2-left)+(right-(c+d)*rcnt/2));
+
+        }
+        if(A.size()==0)return 0;
+        return res;
+    }
+
+    public int get(int A[],int i){
+        if(i<0)return 0;
+        return A[i];
+    }
+}
