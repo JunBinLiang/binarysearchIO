@@ -1,0 +1,48 @@
+import java.util.*;
+
+class Solution {
+    List<Integer>adjecent[];
+    boolean visit[];
+    public int solve(int[][] A, int k) {
+        int res=0;
+        adjecent=new ArrayList[A.length];
+        visit=new boolean[A.length];
+        for(int i=0;i<A.length;i++){
+            adjecent[i]=new ArrayList<>();
+        }
+
+        for(int i=0;i<A.length;i++){
+            for(int j=i+1;j<A.length;j++){
+                int d=dis(A[i][0],A[i][1],A[j][0],A[j][1]);
+                if(d<=k*k){
+                    adjecent[i].add(j);
+                    adjecent[j].add(i);
+                }                
+            }
+        }
+
+        for(int i=0;i<A.length;i++){
+            if(!visit[i]){
+                visit[i]=true;
+                res++;
+                dfs(i);
+            }
+        }
+
+        return res;
+    }
+
+    public void dfs(int root){
+        List<Integer>childs=adjecent[root];
+        for(int next:childs){
+            if(!visit[next]){
+                visit[next]=true;
+                dfs(next);
+            }
+        }
+    }
+
+    public int dis(int x1,int y1,int x2,int y2){
+        return (x2-x1)*(x2-x1)+(y2-y1)*(y2-y1);
+    }
+}
