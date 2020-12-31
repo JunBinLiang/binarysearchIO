@@ -1,0 +1,15 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s) {
+        int l=0,r=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='L')l++;
+            if(s.charAt(i)=='R')r++;
+        }
+
+        int mx=s.length()-Math.min(l,r);
+
+        return mx-Math.min(l,r);
+    }
+}
