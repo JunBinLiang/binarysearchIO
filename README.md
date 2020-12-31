@@ -87,6 +87,7 @@ Solution for binarySearch.io
 
 ---
 ### Hash
+#204. [Swap Characters to Equalize Strings (E) 800](./code/204.txt) <br />
 #304. [City Blocks (E) 900](./code/304.txt) <br />
 
 ---
