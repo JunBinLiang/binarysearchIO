@@ -64,6 +64,10 @@ Solution for binarySearch.io
 
 
 ---
+### Bit
+#560. [Bit Sum (M-) 1400](./code/560.txt) <br />
+
+---
 ### Two Pointer
 #21. [Subsequence Strings (E) 1000](./code/21.txt) <br />
 #869. [Sublist with Largest Min-Length Product (H-) 1600](./code/869.txt) <br />
