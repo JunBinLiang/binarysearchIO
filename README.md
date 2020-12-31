@@ -36,6 +36,7 @@ Solution for binarySearch.io
 #682. [Delete From the Ends and Reinsert to Target (M) 1500](./code/682.txt) <br />
 #751. [Largest Sum After K Negations (E) 900](./code/751.txt) <br />
 #764. [Sublists Containing Maximum and Minimum (H) 1800](./code/764.txt) <br />
+#977. [Three Player Coin Game (M-) 1400](./code/977.txt) <br />
 
 ---
 ### Stack
