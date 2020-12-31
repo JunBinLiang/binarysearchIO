@@ -14,6 +14,10 @@ Solution for binarySearch.io
 #929. [Index with Equal Left and Right Sums (E) 900](./code/929.txt) <br />
 
 ---
+### Math
+#103. [Max Product of Two Numbers(E) 800](./code/103.txt) <br />
+
+---
 ### DP
 #9. [Largest Sum of Non-Adjacent Numbers (M) 1500](./code/9.txt) <br />
 #174. [Sort String by Flipping (H-) 1600](./code/174.txt) <br />
