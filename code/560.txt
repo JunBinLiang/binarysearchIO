@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        int mod=1000000007;
+        long res=0;
+        int cnt[]=new int[32];
+        for(int i:A){
+            res+=i;
+            for(int j=0;j<=31;j++){
+                if((i&(1<<j))==0){
+                    cnt[j]++;
+                }
+            }
+        }
+
+        int index=0;
+        while(k>0){
+            while(cnt[index]==0&&index<cnt.length)index++;
+            k--;
+            cnt[index]--;
+            res+=(1<<index);
+        }
+
+
+
+        return (int)(res%mod);
+    }
+}
