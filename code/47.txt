@@ -1,0 +1,60 @@
+import java.util.*;
+
+class Solution {
+    boolean visit[][]=new boolean[252][252];
+    public int solve(int[][] A) {
+        int n=A.length,m=A[0].length;
+        boolean good=false;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]==1){
+                    good=true;
+                    dfs(A,i,j);
+                    break;
+                }
+            }
+            if(good)break;
+        }
+        Queue<int[]>q=new LinkedList<>();
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(A[i][j]==2){
+                    q.add(new int[]{i,j,0});
+                    visit[i][j]=true;
+                }
+            }
+
+        }
+
+        while(q.size()!=0){
+            int pair[]=q.poll();
+            int r=pair[0],c=pair[1],level=pair[2];
+            if(A[r][c]==1)return level-1;
+            add(A,q,r+1,c,level+1);
+            add(A,q,r-1,c,level+1);
+            add(A,q,r,c+1,level+1);
+            add(A,q,r,c-1,level+1);
+        }
+
+
+        return -1;
+    }
+
+    public void add(int A[][],Queue<int[]>q,int i,int j,int level){
+        if(i<0||j<0||i>=A.length||j>=A[0].length)return;
+        if(A[i][j]==-1)return;
+        if(visit[i][j])return;
+        visit[i][j]=true;
+        q.add(new int[]{i,j,level});
+    }
+
+    public void dfs(int A[][],int i,int j){
+        if(i<0||j<0||i>=A.length||j>=A[0].length)return;
+        if(A[i][j]==0||A[i][j]==2)return;
+        A[i][j]=2;
+        dfs(A,i+1,j);
+        dfs(A,i-1,j);
+        dfs(A,i,j+1);
+        dfs(A,i,j-1);
+    }
+}
