@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] nums, int[][] ranges) {
+        PriorityQueue<Integer>pq=new PriorityQueue<>((a,b)->{
+            return b-a;
+        });
+        long res=0;int mod=1000000007;
+        int cnt[]=new int[nums.length+1];
+        for(int pair[]:ranges){
+            cnt[pair[0]]++;
+            cnt[pair[1]+1]--;
+        }
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            sum+=cnt[i];
+            pq.add(sum);
+        }
+        Arrays.sort(nums);
+        for(int i=nums.length-1;i>=0;i--){
+            res+=(pq.poll()*nums[i]);
+            res%=mod;
+        }
+
+        return (int)(res);
+    }
+}
