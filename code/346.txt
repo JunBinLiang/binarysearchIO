@@ -1,0 +1,16 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] nums) {
+        Set<Integer>set=new HashSet<>();
+        for(int i:nums)set.add(i);
+        int res=-1;
+
+        for(int i:nums){
+            if(i>=0&&set.contains(-i)){
+                res=Math.max(res,i);
+            }
+        }
+        return res;
+    }
+}
