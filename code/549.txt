@@ -1,0 +1,53 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int K) {
+        if(A.length==0)return 0;
+        int n=A.length;
+        int res=0;
+        int dp[][]=new int[n+1][n+2];
+        
+        if(A[0]%2==1){
+            dp[0][1]=1;
+            if(1>=K)res=1;
+        }
+        else{
+            dp[0][0]=1;
+            if(0>=K)res=1;
+        }
+        
+        //dp[0][0]=1
+
+        for(int i=1;i<A.length;i++){
+            if(A[i]%2==1){
+                dp[i][1]=1;
+                if(1>=K)res=Math.max(res,1);
+            }
+            else{
+                dp[i][0]=1;
+                if(0>=K)res=Math.max(res,1);
+            }
+
+            for(int j=i-1;j>=0;j--){
+                if(A[i]>A[j]){
+                    for(int k=0;k<=n;k++){
+                        if(A[i]%2==0){
+                            if(dp[j][k]!=0){
+                                dp[i][k]=Math.max(dp[i][k],1+dp[j][k]);
+                                if(k>=K)res=Math.max(res,dp[i][k]);
+                            }
+                            
+                        }
+                        else{//odd
+                            if(dp[j][k]!=0){
+                                dp[i][k+1]=Math.max(dp[i][k+1],1+dp[j][k]);
+                                if(k+1>=K)res=Math.max(res,dp[i][k+1]);                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return res;
+    }
+}
