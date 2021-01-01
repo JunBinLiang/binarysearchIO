@@ -50,6 +50,7 @@ Solution for binarySearch.io
 
 ---
 ### Binary Search
+#733. [Maximize the Minimum Value After K Sublist Increments (M+) 1600](./code/733.txt) <br />
 #854. [Split List to Minimize Largest Sum (H-) 1700](./code/854.txt) <br />
 #925. [Minimize Absolute Difference of Three Numbers (M) 1500](./code/925.txt) <br />
 #934. [Arithmetic Sequence Queries (M) 1500](./code/934.txt) <br />
