@@ -27,6 +27,7 @@ Solution for binarySearch.io
 #217. [Longest Common Subsequence of Three String s (H) 1800](./code/217.txt) <br />
 #549. [Odd Longest Increasing Subsequence (H-) 1700](./code/549.txt) <br />
 #563. [Chain of Blocks (M) 1500](./code/563.txt) <br />
+#568. [Choose N (H) 1800](./code/568.txt) <br />
 #595. [Increasing Subsequences of Size K (H-) 1700](./code/595.txt) <br />
 #701. [Minimum Number of Flips to Have Alternating Values (H) 1800](./code/701.txt) <br />
 #936. [Shortest Window Substring in Order (H) 1800](./code/936.txt) <br />
