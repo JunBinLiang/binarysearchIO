@@ -1,0 +1,71 @@
+check if there is an odd sum cycle
+graph+prefix sum
+
+
+
+import java.util.*;
+
+class Solution {
+    boolean res=true;
+    Map<Integer,List<int[]>>map=new HashMap<>();
+    Set<Integer>set=new HashSet<>();
+    Map<Integer,Integer>pre=new HashMap<>();
+    public boolean solve(int[][] A) {
+        if(!check(A))return false;
+        List<Integer>list=new ArrayList<>();
+        for(int pair[]:A){
+            int u=pair[0],v=pair[1]+1;
+            if(!map.containsKey(u))map.put(u,new ArrayList<>());
+            if(!map.containsKey(v))map.put(v,new ArrayList<>());
+            map.get(v).add(new int[]{u,pair[2]});
+            map.get(u).add(new int[]{v,pair[2]});
+            list.add(v);list.add(u);
+        }
+        
+        
+
+        for(int root:list){
+            if(pre.containsKey(root))continue;
+            pre.put(root,0);
+            dfs(-1,root);
+        }
+        return res;
+    }
+
+    public void dfs(int parent,int root){
+        if(!res)return;
+        
+        List<int[]>childs=map.get(root);
+        for(int next[]:childs){
+            int v=next[0],w=next[1];
+
+            if(pre.containsKey(v)){
+                if(v!=parent){
+                    int sum=pre.get(root)-pre.get(v);
+                    if((sum+w)%2==1)res=false;
+                }
+            }
+            else{
+                int old=pre.get(root);
+                pre.put(v,old+w);
+                dfs(root,v);
+            }
+        }
+        
+
+    }
+
+    public boolean check(int A[][]){//duplicate check
+        Map<String,Integer>map=new HashMap<>();
+        for(int pair[]:A){
+            String s=pair[0]+","+pair[1];
+            if(map.containsKey(s)){
+                if(map.get(s)!=pair[2])return false;
+            }
+            else{
+                map.put(s,pair[2]);
+            }
+        }
+        return true;
+    }
+}
