@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        Arrays.sort(A);
+        int res=Integer.MAX_VALUE;
+        for(int i=0;i<A.length;i++){
+            int a=A[i];
+            int l=i+1,r=A.length-1;
+            while(l<r){
+                int sum=A[l]+A[r];
+                res=Math.min(res,Math.abs(a+sum-k));
+                if(sum+a>=k){
+                    r--;
+                }
+                else{
+                    l++;
+                }
+            }
+           
+        }
+        return res;
+    }
+}
+
+//-2 -1 0 2
