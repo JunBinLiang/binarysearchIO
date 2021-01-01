@@ -22,6 +22,7 @@ Solution for binarySearch.io
 #9. [Largest Sum of Non-Adjacent Numbers (M) 1500](./code/9.txt) <br />
 #174. [Sort String by Flipping (H-) 1600](./code/174.txt) <br />
 #205. [Longest Common Substring (M) 1500](./code/205.txt) <br />
+#213. [Dividing Station (H-) 1600](./code/213.txt) <br />
 #217. [Longest Common Subsequence of Three String s (H) 1800](./code/217.txt) <br />
 #549. [Odd Longest Increasing Subsequence (H-) 1700](./code/549.txt) <br />
 #563. [Chain of Blocks (M) 1500](./code/563.txt) <br />
