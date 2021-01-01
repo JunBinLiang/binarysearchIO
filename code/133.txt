@@ -1,0 +1,55 @@
+import java.util.*;
+
+/**
+ * public class Tree {
+ *   int val;
+ *   Tree left;
+ *   Tree right;
+ * }
+ */
+class Solution {
+    boolean res=true;
+    Tree ans=null;
+    int mx=0;
+    public Tree solve(Tree root) {
+        dfs(root);
+        return ans;
+    }
+
+    public int[] dfs(Tree root){
+        if(root==null){
+            return null;
+        }
+        
+        int min=root.val;
+        int max=root.val;
+        
+        int l[]=dfs(root.left);
+        int r[]=dfs(root.right);
+        int sum=0;
+        if(r!=null){
+            int rmin=r[0];
+            if(rmin<=root.val){
+                res=false;
+            }
+            min=Math.min(r[0],min); max=Math.max(r[1],max);
+            sum+=r[2];
+        }
+        
+        if(l!=null){
+            int lmax=l[1];
+            if(lmax>=root.val){
+                res=false;
+            }
+            min=Math.min(l[0],min);max=Math.max(max,l[1]);
+            sum+=l[2];
+        }
+        if(res){
+            if(1+sum>mx){
+                mx=1+sum;
+                ans=root;
+            }
+        }
+        return new int[]{min,max,1+sum};
+    }
+}
