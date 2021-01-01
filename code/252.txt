@@ -1,0 +1,49 @@
+import java.util.*;
+
+class Solution {
+    int dp[][];
+    public int solve(int[] A, int[] B) {
+        dp=new int[A.length][3];
+        for(int i=0;i<dp.length;i++){
+            Arrays.fill(dp[i],-1);
+        }
+        return dfs(A,B,0,0);
+    }
+
+    public int dfs(int A[],int B[],int index,int state){//0:no change, 1:change
+        if(index>=A.length)return 0;
+        if(dp[index][state]!=-1)return dp[index][state];
+        int res=Integer.MAX_VALUE;
+        if(index==0){
+            res=Math.min(res,dfs(A,B,index+1,0));
+            res=Math.min(res,B[0]+dfs(A,B,index+1,1));
+            res=Math.min(res,B[0]*2+dfs(A,B,index+1,2));
+        }
+        else{
+            int pre=A[index-1];
+            if(state==1)pre++;
+            else if(state==2)pre+=2;
+
+            if(pre==A[index]){
+                res=Math.min(res,B[index]+dfs(A,B,index+1,1));
+                res=Math.min(res,B[index]*2+dfs(A,B,index+1,2));
+            }
+            else if(pre-1==A[index]){
+                res=Math.min(res,dfs(A,B,index+1,0));
+                res=Math.min(res,B[index]*2+dfs(A,B,index+1,2));
+            }
+            else if(pre-2==A[index]){
+                res=Math.min(res,dfs(A,B,index+1,0));
+                res=Math.min(res,B[index]+dfs(A,B,index+1,1));
+            }
+            else{
+                res=Math.min(res,dfs(A,B,index+1,0));
+                res=Math.min(res,B[index]+dfs(A,B,index+1,1));
+                res=Math.min(res,B[index]*2+dfs(A,B,index+1,2));
+            }
+        }
+
+        dp[index][state]=res;
+        return res;
+    }
+}
