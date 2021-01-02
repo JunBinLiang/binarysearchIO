@@ -140,3 +140,8 @@ Solution for binarySearch.io
 #586. [Cut Palindrome (M) 1500](./code/586.txt) <br />
 #826. [Monotonous String Groups (E) 1000](./code/826.txt) <br />
 #894. [Find a Linked List in a Binary Tree (H-) 1700](./code/894.txt) <br />
+
+
+---
+### Game
+#195. [Candy Race (H-) 1700](./code/195.txt) <br />
