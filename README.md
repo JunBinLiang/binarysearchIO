@@ -123,6 +123,10 @@ Solution for binarySearch.io
 #747. [Minimum Time to Finish K Tasks(M+) 1600](./code/747.txt) <br />
 
 ---
+### Heap
+#820. [Sum of Odd Length Medians (H-) 1700](./code/820.txt) <br />
+
+---
 ### Trie
 #748. [Maximum XOR Queries (H) 1800](./code/748.txt) <br />
 
