@@ -1,0 +1,95 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A) {
+        //since we can n^2
+        //use stream
+
+        int res=0;
+        for(int i=0;i<A.length;i++){
+            int j=i;
+            MedianFinder finder=new MedianFinder();
+            finder.add(A[j++]);
+            //int m=finder.findMedian();System.out.println(m);
+            res+=finder.findMedian();
+            while(j+1<A.length){
+                finder.add(A[j++]);
+                finder.add(A[j++]);
+                int m=finder.findMedian();
+                res+=finder.findMedian();
+            }
+
+        }
+        return res;
+    }
+}
+
+class MedianFinder {
+
+    /** initialize your data structure here. */
+    int size;
+    PriorityQueue<Integer>left;
+    PriorityQueue<Integer>right;
+    public MedianFinder() {
+        size=0;
+        right=new PriorityQueue<>();
+        left=new PriorityQueue<>(Collections.reverseOrder());
+    }
+    
+    public void add(int num) {
+        size++;
+        if(size==1){
+            left.add(num);
+            return;
+        }
+        if(size==2){
+            if(num<=left.peek()){
+                left.add(num);
+                adjust();
+            }
+            else{
+                right.add(num);
+            }
+            return;
+        }
+        if(num<=left.peek()){
+            left.add(num);
+        }else{
+            right.add(num);
+        }
+        adjust();
+    }
+    
+    private void adjust(){
+        if(left.size()>right.size()){
+            while(left.size()-right.size()>1){
+                right.add(left.poll());
+            }
+            return;
+        }
+        
+        if(right.size()>left.size()){
+            while(right.size()-left.size()>1){
+                left.add(right.poll());
+            }
+            
+        }
+    }
+    
+    public int findMedian() {
+        if(size==1){
+            return left.peek();
+        }
+        if(size%2==0){
+            return 0;
+        }
+        if(size%2==1){
+            if(left.size()>right.size()){
+                return left.peek();
+            }
+            else return right.peek();
+            
+        }
+        return 0;
+    }
+}
