@@ -1,0 +1,31 @@
+import java.util.*;
+
+class Solution {
+    public boolean solve(String s, int k) {
+        int t[]=new int[26];
+        int cnt=0;
+        int sum=0;
+        for(int i=0;i<s.length();i++){
+            t[s.charAt(i)-'a']++;
+        }
+
+        for(int i=0;i<26;i++){
+            if(k==0)break;
+            if(t[i]%2==1){
+                t[i]--;
+                k--;
+            }
+        }
+
+        for(int i=0;i<26;i++){
+            if(t[i]%2==1){
+                cnt++;
+            }
+            sum+=t[i];
+        }
+        if(cnt>0||k>sum)return false;
+
+
+        return true;
+    }
+}
