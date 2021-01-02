@@ -38,6 +38,7 @@ Solution for binarySearch.io
 
 ---
 ### Greedy
+#286. [Buying Cars (E) 800](./code/286.txt) <br />
 #397. [K Unique String (M-) 1300](./code/397.txt) <br />
 #493. [Split List Into Strictly Increasing Chunks(H-) 1600](./code/493.txt) <br />
 #598. [Furthest From Origin (E) 800](./code/598.txt) <br />
