@@ -1,0 +1,37 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        int n=A.length;
+        int dp[]=new int[n];
+        Arrays.fill(dp,Integer.MIN_VALUE);
+        dp[0]=A[0];
+        Set<Integer>set=new HashSet<>();
+        Queue<Integer>q=new LinkedList<>();
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return a[1]-b[1];
+        });
+        
+        set.add(0);
+        q.add(0);
+        pq.add(new int[]{0,A[0]});
+        
+        for(int i=1;i<A.length;i++){
+            while(!set.contains(pq.peek()[0])){
+                pq.poll();
+            }
+            int mx=pq.peek()[1];
+            dp[i]=A[i]+mx;
+            q.add(i);
+            set.add(i);
+            while(q.size()>k){
+                int f=q.poll();
+                set.remove(f);
+            }
+            pq.add(new int[]{i,dp[i]});
+        }
+        
+        
+        return dp[n-1];
+    }
+}
