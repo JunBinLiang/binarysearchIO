@@ -1,0 +1,56 @@
+import java.util.*;
+
+class Solution {
+    int n;
+    int dp[][];
+    public int solve(int[] A) {
+        n=A.length;
+        dp=new int[15][1<<n+1];
+        for(int i=0;i<dp.length;i++){
+            Arrays.fill(dp[i],-1);
+        }
+
+        int fact[]=new int[n+1];
+        fact[0]=1;
+        for(int i=1;i<fact.length;i++){
+            fact[i]=fact[i-1]*i;
+        }
+
+        Map<Integer,Integer>map=new HashMap<>();
+        int res=0;
+        int state=(1<<n)-1;
+        for(int i=0;i<A.length;i++){
+            if(!map.containsKey(A[i]))map.put(A[i],0);
+            map.put(A[i],map.get(A[i])+1);
+            res+=dfs(A,i,state^(1<<i));
+        }
+
+        for(Integer key:map.keySet()){
+            int cnt=map.get(key);
+            res/=fact[cnt];
+        }
+
+        return res;
+    }
+
+    public int dfs(int A[],int pre,int state){
+        if(state==0)return 1;
+        if(dp[pre][state]!=-1)return dp[pre][state];
+        int res=0;
+
+        for(int i=0;i<n;i++){
+            if((state&(1<<i))!=0){
+                if(check(A[pre]+A[i])){
+                    res+=dfs(A,i,state^(1<<i));
+                }
+            }
+        }
+        dp[pre][state]=res;
+        return res;
+    }
+
+    public boolean check(int num){
+        int sqrt=(int)(Math.sqrt(num));
+        return sqrt*sqrt==num;
+    }
+}
