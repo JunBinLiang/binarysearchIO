@@ -35,6 +35,7 @@ Solution for binarySearch.io
 #689. [Costly Flight of Stairs (M) 1500](./code/689.txt) <br />
 #701. [Minimum Number of Flips to Have Alternating Values (H) 1800](./code/701.txt) <br />
 #811. [Split String Into K Palindromes (H) 1800](./code/811.txt) <br />
+#867. [Adjacent Square Sums (H) 1800](./code/867.txt) <br />
 #936. [Shortest Window Substring in Order (H) 1800](./code/936.txt) <br />
 
 ---
