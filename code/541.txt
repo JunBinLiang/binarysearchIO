@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+    public int[] solve(int[] nums, int k) {
+        List<Integer>res=new ArrayList<>();
+        Map<Integer,Integer>map=new HashMap<>();
+        Queue<Integer>q=new LinkedList<>();
+
+        for(int i=0;i<nums.length;i++){
+            q.add(nums[i]);
+            if(!map.containsKey(nums[i]))map.put(nums[i],0);
+            map.put(nums[i],map.get(nums[i])+1);
+            if(q.size()<k)continue;
+
+           // System.out.println(q+"  "+map);
+            res.add(map.size());
+            int f=q.poll();
+            map.put(f,map.get(f)-1);
+            if(map.get(f)==0)map.remove(f);
+        }
+
+        int ans[]=new int[res.size()];
+        for(int i=0;i<ans.length;i++){
+            ans[i]=res.get(i);
+        }
+        return ans;
+    }
+}
