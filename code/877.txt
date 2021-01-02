@@ -1,0 +1,68 @@
+最短路劲+dp
+
+import java.util.*;
+
+class Solution {
+    Map<Integer,List<int[]>>map=new HashMap<>();
+    int mx=0;
+    int mod=1000000007;
+    long dis[];
+    long dp[]=new long[10010];
+    public int solve(int[][] edges) {
+        Arrays.fill(dp,-1);
+        for(int pair[]:edges){
+            int u=pair[0],v=pair[1],w=pair[2];
+            if(!map.containsKey(u))map.put(u,new ArrayList<>());
+            if(!map.containsKey(v))map.put(v,new ArrayList<>());
+            mx=Math.max(mx,v);
+            mx=Math.max(mx,u);
+            map.get(v).add(new int[]{u,w});
+            map.get(u).add(new int[]{v,w});
+        }
+
+
+        int N=10010;
+        dis=new long[N+1];
+		Arrays.fill(dis,Long.MAX_VALUE);
+		boolean visit[]=new boolean[10010];
+		dis[mx]=0;
+		visit[mx]=true;
+		PriorityQueue<Integer>q=new PriorityQueue<>((a,b)->{
+			return Long.compare(dis[a],dis[b]);
+		});
+		q.add(mx);
+		while(q.size()!=0){
+			int v=q.poll();
+			visit[v]=false;
+			List<int[]>childs=map.get(v);
+			for(int A[]:childs){
+				if(dis[A[0]]>A[1]+dis[v]){
+					dis[A[0]]=A[1]+dis[v];
+					if(!visit[A[0]]){
+						q.add(A[0]);
+						visit[A[0]]=true;
+					}
+				}
+			}
+		}
+
+        return (int)(dfs(0));
+    }
+
+    public long dfs(int root){
+        if(root==mx)return 1;
+        List<int[]>childs=map.get(root);
+        if(dp[root]!=-1)return dp[root];
+        long res=0;
+        for(int next[]:childs){
+            int v=next[0],w=next[1];
+            if(dis[root]>dis[v]){
+                res+=dfs(v);
+                res%=mod;
+            }
+        }
+        dp[root]=res;
+        return res;
+    }
+   
+}
