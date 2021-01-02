@@ -27,6 +27,7 @@ Solution for binarySearch.io
 #213. [Dividing Station (H-) 1600](./code/213.txt) <br />
 #217. [Longest Common Subsequence of Three String s (H) 1800](./code/217.txt) <br />
 #252. [Spiky Plants (H) 1800](./code/252.txt) <br />
+#463. [Count Exact Sum (H-) 1700](./code/463.txt) <br />
 #549. [Odd Longest Increasing Subsequence (H-) 1700](./code/549.txt) <br />
 #563. [Chain of Blocks (M) 1500](./code/563.txt) <br />
 #568. [Choose N (H) 1800](./code/568.txt) <br />
