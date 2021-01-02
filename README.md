@@ -138,6 +138,7 @@ Solution for binarySearch.io
 ---
 ### Implementation
 #125. [Repeated Addition (E) 800](./code/125.txt) <br />
+#138. [Collatz Sequence (E) 800](./code/138.txt) <br />
 
 ---
 ### String
