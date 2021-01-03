@@ -1,0 +1,23 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A) {
+        int res=0;
+        for(int i=0;i<A.length-1;i++){
+            int j=i+1;
+            int cnt=1;
+            int dif=A[j]-A[i];
+            while(j<A.length&&A[j]-A[j-1]==dif){
+                j++;
+                cnt++;
+            }
+
+            if(cnt>=3){
+                int e=cnt-3+1;
+                res=res+(1+e)*e/2;
+            }
+            i=j-2;
+        }
+        return res;
+    }
+}
