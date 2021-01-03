@@ -36,6 +36,7 @@ Solution for binarySearch.io
 #563. [Chain of Blocks (M) 1500](./code/563.txt) <br />
 #568. [Choose N (H) 1800](./code/568.txt) <br />
 #595. [Increasing Subsequences of Size K (H-) 1700](./code/595.txt) <br />
+#614. [Turn Into Non-Increasing List (H+) 1900](./code/614.txt) <br />
 #689. [Costly Flight of Stairs (M) 1500](./code/689.txt) <br />
 #701. [Minimum Number of Flips to Have Alternating Values (H) 1800](./code/701.txt) <br />
 #811. [Split String Into K Palindromes (H) 1800](./code/811.txt) <br />
