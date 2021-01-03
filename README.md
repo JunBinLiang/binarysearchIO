@@ -10,6 +10,7 @@ Solution for binarySearch.io
 #433. [Swap Consecutive Pair of Even Numbers(E) 900](./code/433.txt) <br />
 #465. [Largest Gap (E-) 700](./code/465.txt) <br />
 #960. [Maximize Binary String Score (E) 900](./code/960.txt) <br />
+#984. [Unobstructed Buildings (E) 900](./code/984.txt) <br />
 
 ---
 ### Prefix Sum
