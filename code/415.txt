@@ -1,0 +1,37 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A) {
+        int res=Integer.MAX_VALUE;
+        Arrays.sort(A);
+        for(int i=0;i<A.length;i++){
+            int a=A[i];
+            for(int j=i+1;j<A.length;j++){
+                int b=A[j];
+                List<Integer>list=new ArrayList<>();
+                for(int k=0;k<A.length;k++){
+                    if(k==i||k==j)continue;
+                    list.add(A[k]);
+                }
+                //System.out.println(a+"  "+b+"  "+list);
+
+                int l=0,r=list.size()-1;
+                int sum1=a+b;
+                while(l<r){
+                    int sum2=list.get(l)+list.get(r);
+                    res=Math.min(res,Math.abs(sum1-sum2));
+                    if(sum2>sum1){
+                        r--;
+                    }
+                    else{
+                        l++;
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+}
+
+//nums = [606, 14732, 30687, 32101, 8381, 1541]
