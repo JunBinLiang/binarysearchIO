@@ -1,0 +1,54 @@
+正常情况应该n^3
+但dp同时有greedy性质
+随着你的越多，max越小
+
+
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A) {
+        if(A.length==0)return 0;
+        reverse(A);
+        int n=A.length;
+        int dp[]=new int[n];
+        int max[]=new int[n];
+
+        dp[0]=1;
+        max[0]=A[0];
+
+        for(int i=1;i<n;i++){
+            int sum=A[i];
+            int mx=1;
+            int val=0;
+            for(int j=i-1;j>=0;j--){
+                if(sum>=max[j]){
+                    if(dp[j]+1>mx){
+                        mx=dp[j]+1;
+                        val=sum;
+                    }
+                }
+                sum+=A[j];
+            }
+
+            if(mx==1){
+                max[i]=sum;
+                dp[i]=mx;
+                continue;
+            }
+
+            max[i]=val;
+            dp[i]=mx;
+        }
+
+        return n-dp[n-1];
+    }
+
+    public void reverse(int A[]){
+        List<Integer>l=new ArrayList<>();
+        for(int i:A)l.add(i);
+        Collections.reverse(l);
+        for(int i=0;i<A.length;i++){
+            A[i]=l.get(i);
+        }
+    }
+}
