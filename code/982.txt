@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    int vote[];
+    public int solve(int[] A) {
+        int n=A.length;
+        vote=new int[n];
+
+        for(int i=0;i<A.length;i++){
+            if(A[i]<0)vote[i]=1;
+            if(A[i]>=n)vote[i]=2;
+        }
+
+
+        //dfs
+        for(int i=0;i<n;i++){
+            if(vote[i]!=0)continue;
+            dfs(A,i);
+        }
+
+        int res=0;
+        for(int i=0;i<A.length;i++){
+            if(vote[i]==1)res++;
+        }
+
+        return res;
+    }
+
+    public int dfs(int A[],int i){
+        if(vote[i]!=0)return vote[i];
+
+        int candidate=dfs(A,A[i]);
+        vote[i]=candidate;
+        return vote[i];
+    }
+}
