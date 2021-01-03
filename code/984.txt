@@ -1,0 +1,16 @@
+vector<int> solve(vector<int>& A) {
+    if(A.size()==0)return {};
+    vector<int>res;
+    int n=A.size();
+    vector<int>right(n);
+    right[n-1]=A[n-1];
+    for(int i=n-2;i>=0;i--){
+        right[i]=max(A[i],right[i+1]);
+    }
+    
+    for(int i=0;i<A.size()-1;i++){
+        if(A[i]>right[i+1])res.push_back(i);
+    }
+    res.push_back(n-1);
+    return res;
+}
