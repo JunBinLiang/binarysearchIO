@@ -1,0 +1,21 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s, int k) {
+        int res=0;
+        Map<String,Integer>map=new HashMap<>();
+        Set<Integer>set=new HashSet<>();
+        for(int i=0;i<s.length()-k+1;i++){
+            String sub=s.substring(i,i+k);
+            if(!map.containsKey(sub))map.put(sub,0);
+            map.put(sub,map.get(sub)+1);
+        }  
+
+        //System.out.println(map);
+
+        for(String key:map.keySet()){
+            if(map.get(key)>1)res++;
+        } 
+        return res;
+    }
+}
