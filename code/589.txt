@@ -1,0 +1,20 @@
+import java.util.*;
+
+class Solution {
+    public int[] solve(int[] nums) {
+        Arrays.sort(nums);
+        int res[]=new int[nums.length];
+        int l=0,r=nums.length-1;
+        int index=0;
+        while(l<=r){
+            if(index%2==0){
+                res[index]=nums[r--];
+            }
+            else{
+                res[index]=nums[l++];
+            }
+            index++;
+        }
+        return res;
+    }
+}
