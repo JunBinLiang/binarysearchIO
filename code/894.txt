@@ -1,0 +1,55 @@
+import java.util.*;
+
+class Solution {
+    List<Integer>adjecent[];
+    boolean res=true;
+    Set<Integer>set=new HashSet<>();
+    public boolean solve(int[] left, int[] right) {
+        int n=left.length;
+        int in[]=new int[n];
+        adjecent=new ArrayList[n];
+        for(int i=0;i<n;i++){
+            adjecent[i]=new ArrayList<>();
+        }
+
+        for(int i=0;i<n;i++){
+            int a=left[i];
+            int b=right[i];
+            if(a!=-1){
+                adjecent[i].add(a);
+                in[a]++;
+            }
+            if(b!=-1){
+                adjecent[i].add(b);
+                in[b]++;
+            }
+        }
+
+        int root=-1;
+        int cnt=0;
+        for(int i=0;i<n;i++){
+            if(in[i]>1)return false;
+            if(in[i]==0){
+                root=i;
+                cnt++;
+            }
+        }
+        if(root==-1||cnt!=1)return false;
+        set.add(root);
+        dfs(root);
+        if(!res)return false;
+        return set.size()==n;
+    }
+
+    public void dfs(int root){
+        List<Integer>next=adjecent[root];
+        for(int c:next){
+            if(set.contains(c)){
+                res=false;
+                return;
+            }
+            set.add(c);
+            dfs(c);
+        }
+    }
+}
