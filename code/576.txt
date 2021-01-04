@@ -1,0 +1,39 @@
+import java.util.*;
+
+class Solution {
+    Map<Integer,Integer>map=new HashMap<>();
+    int cnt=0;
+    boolean visit[][];
+    public int solve(int[][] mat) {
+        if(mat.length==0)return 0;
+        int n=mat.length;int m=mat[0].length;
+        visit=new boolean[n][m];
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(visit[i][j]==true)continue;
+                cnt++;
+                dfs(mat,i,j,mat[i][j]);
+                if(!map.containsKey(mat[i][j]))map.put(mat[i][j],0);
+                map.put(mat[i][j],map.get(mat[i][j])+1);
+            }
+        }
+
+        int mx=0;
+        for(Integer key:map.keySet()){
+            mx=Math.max(mx,map.get(key));
+        }
+
+        return cnt-mx;
+    }
+
+    public void dfs(int mat[][],int i,int j,int color){
+        if(i<0||j<0||i>=mat.length||j>=mat[0].length)return;
+        if(mat[i][j]!=color||visit[i][j])return;
+        visit[i][j]=true;
+        dfs(mat,i+1,j,color);
+        dfs(mat,i-1,j,color);
+        dfs(mat,i,j+1,color);
+        dfs(mat,i,j-1,color);
+    }
+}
