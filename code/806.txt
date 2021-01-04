@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int songs, int n, int k) {
+        int mod=1000000007;
+        long dp[][]=new long[n][songs+1];
+        dp[0][1]=songs;
+        for(int i=1;i<n;i++){
+            for(int unique=1;unique<=songs;unique++){
+                //play new
+                dp[i][unique]+=dp[i-1][unique-1]*(songs-(unique-1));
+                dp[i][unique]%=mod;
+                //play old       i-k-1
+                dp[i][unique]+=(Math.max(0,unique-k))*dp[i-1][unique];
+                dp[i][unique]%=mod; 
+            }
+        }
+
+
+        return (int)(dp[n-1][songs]);
+    }
+}
+
+//a b c d | (abcd)
