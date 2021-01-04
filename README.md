@@ -53,6 +53,7 @@ Solution for binarySearch.io
 #493. [Split List Into Strictly Increasing Chunks(H-) 1600](./code/493.txt) <br />
 #498. [Fleet of Palindromes (M) 1500](./code/498.txt) <br />
 #598. [Furthest From Origin (E) 800](./code/598.txt) <br />
+#618. [Fibonacci Subset Sum (M) 1500](./code/618.txt) <br />
 #619. [Making List Values Equal (E) 900](./code/619.txt) <br />
 #682. [Delete From the Ends and Reinsert to Target (M) 1500](./code/682.txt) <br />
 #751. [Largest Sum After K Negations (E) 900](./code/751.txt) <br />
