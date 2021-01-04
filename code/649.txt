@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+    public boolean solve(int[] nums) {
+        int sum=0;
+        for(int i:nums){
+            sum+=i;
+        }
+        if(sum%2!=0)return false;
+        boolean dp[][]=new boolean[nums.length+1][sum/2+1];
+        dp[0][0]=true;
+
+        for(int i=1;i<dp.length;i++){
+            int cur=nums[i-1];
+            for(int j=0;j<dp[0].length;j++){
+                dp[i][j]=dp[i-1][j];
+                if(j-cur>=0){
+                    dp[i][j]|=dp[i-1][j-cur];
+                }
+            }
+        }
+        return dp[nums.length][sum/2];
+    }
+}
