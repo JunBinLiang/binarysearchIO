@@ -95,6 +95,7 @@ Solution for binarySearch.io
 #828. [Walled Off (H) 1800](./code/828.txt) <br />
 #877. [Unique Paths to Go Home (H) 1800](./code/877.txt) <br />
 #881. [Logically Consistent Book (H+) 1900](./code/881.txt) <br />
+#894. [Tree Detection (M) 1500](./code/894.txt) <br />
 #950. [Minimum Starting Nodes to Visit Graph (M-) 1400](./code/950.txt) <br />
 
 ---
