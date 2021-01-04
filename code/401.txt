@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int n) {
+        if(n==0)return 0;
+        int dp[]=new int[n];
+        dp[0]=1;
+
+        for(int i=1;i<n;i++){
+            for(int j=i-1;j>=0;j--){//copy in j
+                int base=get(dp,j-1);
+                int t=i-j+1;
+                dp[i]=Math.max(dp[i],base*t);
+                dp[i]=Math.max(dp[i],dp[j]+1);
+
+            }
+        }
+
+        return dp[n-1];
+    }
+
+    public int get(int A[],int i){
+        if(i<0)return 0;
+        return A[i];
+    }
+}
