@@ -129,6 +129,7 @@ Solution for binarySearch.io
 #204. [Swap Characters to Equalize Strings (E) 800](./code/204.txt) <br />
 #304. [City Blocks (E) 900](./code/304.txt) <br />
 #659. [Repeated K-Length Substrings (E) 900](./code/659.txt) <br />
+#819. [Piece Grouping (M-) 1300](./code/819.txt) <br />
 
 ---
 ### Ordered Map
