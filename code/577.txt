@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Solution {
+    Map<String,int[]>map=new HashMap<>();
+    public int solve(int[] A) {
+        int n=A.length;
+        int res[]=dfs(A,0,n-1);//[mx,mn]
+        return res[0];
+    }
+
+    public int[] dfs(int A[],int l,int r){
+        if(l==r){
+            return new int[]{A[l],A[r]};
+        }
+        String state=l+","+r;
+        if(map.containsKey(state))return map.get(state);
+
+        int mx=Integer.MIN_VALUE;
+        int mn=Integer.MAX_VALUE;
+        for(int i=l;i<r;i++){
+            int left[]=dfs(A,l,i);
+            int right[]=dfs(A,i+1,r);
+
+            for(int j:left){
+                for(int k:right){
+                    //System.out.println(j+" "+k);
+                    mx=Math.max(mx,j+k);
+                    mx=Math.max(mx,j*k);
+                    mx=Math.max(mx,j-k);
+
+                    mn=Math.min(mn,j+k);
+                    mn=Math.min(mn,j*k);
+                    mn=Math.min(mn,j-k);
+                }
+            }
+        }
+        map.put(state,new int[]{mx,mn});
+        return map.get(state);
+    }
+}
