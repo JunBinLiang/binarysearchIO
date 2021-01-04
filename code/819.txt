@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Solution {
+    public boolean solve(int[][] pieces, int[] target) {
+        Map<Integer,int[]>map=new HashMap<>();
+        for(int pair[]:pieces){
+            if(pair.length==0)continue;
+            map.put(pair[0],pair);
+        }
+
+        for(int i=0;i<target.length;i++){
+            if(!map.containsKey(target[i]))return false;
+            int pair[]=map.get(target[i]);
+            int k=i;
+            for(int j=0;j<pair.length;j++){
+                if(k>=target.length)return false;
+                if(pair[j]!=target[k])return false;
+                k++;
+            }
+            i=k-1;
+        }
+
+        return true;
+    }
+}
