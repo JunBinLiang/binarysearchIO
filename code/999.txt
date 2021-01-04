@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s) {
+        if(s.length()==1)return 0;
+        char A[]=s.toCharArray();
+        reverse(A);
+        int res=0;
+
+        for(int i=0;i<A.length;i++){
+            if(A[i]=='0'){
+                res++;
+            }
+            else{
+                if(i==A.length-1)break;
+                res++;
+                int j=i;
+                while(j<A.length&&A[j]=='1'){
+                    A[j]='0';
+                    j++;
+                }
+                if(j<A.length){
+                    A[j]='1';
+                }
+                i--;
+            }
+        }
+        return res;
+    }
+
+    public void reverse(char A[]){
+        int l=0,r=A.length-1;
+        while(l<r){
+            char t=A[l];
+            A[l]=A[r];
+            A[r]=t;
+            l++;r--;
+        }
+    }
+}
