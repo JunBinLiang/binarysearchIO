@@ -1,0 +1,29 @@
+import java.util.*;
+
+/**
+ * public class Tree {
+ *   int val;
+ *   Tree left;
+ *   Tree right;
+ * }
+ */
+class Solution {
+    public int solve(Tree root) {
+        int res[]=dfs(root);
+        return Math.max(res[0],res[1]);
+    }
+
+    public int[] dfs(Tree root){
+        if(root==null){
+            return new int[]{0,0};
+        }
+        int l[]=dfs(root.left);
+        int r[]=dfs(root.right);
+
+        //take or not
+        int take=root.val+l[1]+r[1];
+        int nontake=Math.max(Math.max(l[0]+r[0],l[1]+r[1]),Math.max(l[1]+r[0],l[0]+r[1]));
+        System.out.println(root.val+"  "+take+"  "+nontake);
+        return new int[]{take,nontake};
+    }
+}
