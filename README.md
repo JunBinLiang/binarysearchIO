@@ -119,6 +119,7 @@ Solution for binarySearch.io
 #21. [Subsequence Strings (E) 1000](./code/21.txt) <br />
 #402. [Sum of Three Numbers Sequel (M) 1500](./code/402.txt) <br />
 #415. [Minimum Set of Pairs (M) 1500](./code/415.txt) <br />
+#589. [Large to Small Sort (E) 900](./code/589.txt) <br />
 #869. [Sublist with Largest Min-Length Product (H-) 1600](./code/869.txt) <br />
 
 ---
