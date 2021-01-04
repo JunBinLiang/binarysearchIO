@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int n) {
+        //1 2 3 5 8 13 21 
+        int res=0;
+        List<Long>fib=new ArrayList<>();
+        long a=1,b=2;
+        fib.add(a);
+        fib.add(b);
+        while(b<=n){
+            long c=a+b;
+            fib.add(c);
+            a=b;
+            b=c;
+        }
+
+        int i=fib.size()-1;
+        while(n>0){
+            if(fib.get(i)<=n){
+                n-=fib.get(i);
+                res++;
+            }
+            i--;
+        }
+        return res;
+    }
+}
