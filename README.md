@@ -139,6 +139,7 @@ Solution for binarySearch.io
 
 ---
 ### Sort
+#287. [Mixed Sorting (E) 900](./code/287.txt) <br />
 #747. [Minimum Time to Finish K Tasks(M+) 1600](./code/747.txt) <br />
 
 ---
