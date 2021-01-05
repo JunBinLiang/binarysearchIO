@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Solution {
+    Map<Integer,Integer>map=new HashMap<>();//no change need
+    public int solve(int[] A) {
+        int res=Integer.MAX_VALUE;
+        int mx=0;
+        for(int i:A){
+            mx=Math.max(mx,i);
+        }
+
+        //2 3 4 ... mx*2
+        int cnt[]=new int[mx*2+2];
+        int pair=A.length/2;
+        int sum=0;
+        int l=0,r=A.length-1;
+        while(l<r){
+            int min=Math.min(A[l],A[r]);
+            int max=Math.max(A[l],A[r]);
+            int total=min+max;
+            cnt[total-(max-1)]++;
+            cnt[total+(mx-min)+1]--;
+            l++;
+            r--;
+            if(!map.containsKey(total))map.put(total,0);
+            map.put(total,map.get(total)+1);
+        }
+
+        for(int i=2;i<cnt.length;i++){
+            sum+=cnt[i];
+            //how many pair can use 1 change
+            int two=(pair-sum)*2;
+            int zero=0;
+            if(map.containsKey(i))zero=map.get(i);
+            res=Math.min(res,sum-zero+two);
+        }
+    
+        return res;
+    }
+}
