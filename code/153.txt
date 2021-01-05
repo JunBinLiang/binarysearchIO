@@ -1,0 +1,19 @@
+import java.util.*;
+
+/**
+ * class LLNode {
+ *   int val;
+ *   LLNode next;
+ * }
+ */
+class Solution {
+    public int solve(LLNode node) {
+        int res=0;
+        while(node!=null){
+            res*=2;
+            res+=node.val;
+            node=node.next;
+        }
+        return res;
+    }
+}
