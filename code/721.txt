@@ -1,0 +1,20 @@
+import java.util.*;
+
+
+class Solution {
+    public String solve(String s) {
+        // Write your code here
+        int pre[]=new int[s.length()];
+        int left=0;int right=1;
+        while(right<s.length()){
+            if(s.charAt(right)==s.charAt(left)){
+                pre[right]=left+1;left++;right++;
+            }else{
+                if(left==0)right++;
+                else left=pre[left-1];
+            }
+        }
+        if(pre[s.length()-1]==0)return "";
+        return s.substring(0,pre[s.length()-1]);
+    }
+}
