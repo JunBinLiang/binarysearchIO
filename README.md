@@ -176,6 +176,7 @@ Solution for binarySearch.io
 ### String
 #172. [Palindromic Anagram(M-) 1100](./code/172.txt) <br />
 #586. [Cut Palindrome (M) 1500](./code/586.txt) <br />
+#721. [Longest Prefix that Is a Suffix (H-) 1600](./code/721.txt) <br />
 #826. [Monotonous String Groups (E) 1000](./code/826.txt) <br />
 #894. [Find a Linked List in a Binary Tree (H-) 1700](./code/894.txt) <br />
 
