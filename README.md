@@ -154,6 +154,7 @@ Solution for binarySearch.io
 
 ---
 ### Heap
+#344. [A Student (H-) 1700](./code/344.txt) <br />
 #820. [Sum of Odd Length Medians (H-) 1700](./code/820.txt) <br />
 
 ---
