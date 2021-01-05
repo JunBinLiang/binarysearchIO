@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int start, int end) {
+        long mn=start;
+        int res=start;
+        int cur=0;
+        for(int i=0;i<=31;i++){
+            if((start&(1<<i))==0)continue;
+            cur=cur|(1<<i);
+            int bitval=1<<(i+1);
+            int need=bitval-cur;
+            if(mn+need<=end){
+                res=res^(1<<i);
+            }
+            
+        }
+
+        return res;
+    }
+}
+
+//1010
+//1000
