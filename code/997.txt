@@ -1,0 +1,127 @@
+import java.util.*;
+
+class Solution {
+    public int[][] solve(int[][] mat) {
+        int n=mat.length;int m=mat[0].length;
+         int ranks[]=new int[n*m];
+        int nums[]=new int[n*m];
+        int res[][]=new int[n][m];
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return a[2]-b[2];
+        });
+
+        for(int i=0;i<nums.length;i++){
+            nums[i]=i;
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                pq.add(new int[]{i,j,mat[i][j]});
+            }
+        }
+
+        //union first
+
+        for(int r=0;r<n;r++){
+            for(int c=0;c<m;c++){
+                int id1=r*mat[0].length+c;
+                int r1=find(nums,id1);
+                
+                for(int i=0;i<n;i++){//look row
+                    if(mat[i][c]==mat[r][c]){
+                        int id2=i*mat[0].length+c;
+                        //if(mat[r][c]==3)System.out.println(id2+" "+i+" "+c);
+                        int r2=find(nums,id2);
+                        if(r1!=r2){
+                            nums[r2]=r1;
+                        }
+                    }
+                }
+
+                for(int i=0;i<m;i++){
+                    if(mat[r][i]==mat[r][c]){
+                        int id2=r*mat[0].length+i;
+                        int r2=find(nums,id2);
+                        if(r1!=r2){
+                            nums[r2]=r1;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+        while(pq.size()!=0){
+            int top[]=pq.poll();
+            int r=top[0],c=top[1],val=mat[r][c];
+            int id=r*mat[0].length+c;
+            int root=find(nums,id);
+            int rank=-1;
+            
+            for(int i=0;i<n;i++){//look row
+                if(i==r)continue;
+                int r2=find(nums,i*mat[0].length+c);
+                if(mat[i][c]<val){
+                    rank=Math.max(rank,ranks[r2]+1);
+                }
+                else if(mat[i][c]==val){
+                    rank=Math.max(rank,ranks[r2]);
+                }
+            }
+
+            for(int i=0;i<m;i++){
+                if(i==c)continue;
+                int r2=find(nums,r*mat[0].length+i);
+                if(mat[r][i]<val){
+                    rank=Math.max(rank,ranks[r2]+1);
+                }
+                else if(mat[r][i]==val){
+                    rank=Math.max(rank,ranks[r2]);
+                }
+            }
+            if(rank<1)rank=1;           
+            ranks[root]=Math.max(ranks[root],rank);
+        }
+
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+               int id=i*mat[0].length+j;
+               int root=find(nums,id);
+               //System.out.println(id+" "+root);
+               res[i][j]=ranks[root];
+            }
+        }
+
+        return res;
+    }
+
+    //[[3,2],[3,1]] best conflict happen example
+    //[[3,1,3],[1,2,3]]
+
+
+    public int find(int nums[],int x){//union find => find method
+		if(nums[x]==x)return x;
+		int root=find(nums,nums[x]);
+		nums[x]=root;
+		return root;
+	}
+
+    public void print2(int A[][]){
+		for(int i=0;i<A.length;i++){
+			for(int j=0;j<A[0].length;j++){
+				System.out.print(A[i][j]+" ");
+			}System.out.println();
+		}System.out.println("*******");
+	}
+
+    public void print1(int A[]){
+		for(long i:A)System.out.print(i+" ");
+		System.out.println("************");
+	}
+}
