@@ -169,6 +169,10 @@ Solution for binarySearch.io
 #865. [Delete Integers In Ascending Order (H) 1800](./code/865.txt) <br />
 
 ---
+### Segment Tree
+#514. [K Subsequence (H+) 1900 (Lazy Seg + DP)](./code/514.txt) <br />
+
+---
 ### Implementation
 #125. [Repeated Addition (E) 800](./code/125.txt) <br />
 #138. [Collatz Sequence (E) 800](./code/138.txt) <br />
