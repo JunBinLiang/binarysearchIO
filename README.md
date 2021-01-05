@@ -124,6 +124,7 @@ Solution for binarySearch.io
 ---
 ### Bit
 #560. [Bit Sum (M-) 1400](./code/560.txt) <br />
+#898. [Bitwise AND of Range of Numbers (M) 1500](./code/898.txt) <br />
 #999. [Reduce Binary Number to One (M-) 1400](./code/999.txt) <br />
 
 ---
