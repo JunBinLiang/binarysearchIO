@@ -67,6 +67,7 @@ Solution for binarySearch.io
 #764. [Sublists Containing Maximum and Minimum (H) 1800](./code/764.txt) <br />
 #972. [Permute List to Make Largest Range Sum (M-) 1400](./code/972.txt) <br />
 #977. [Three Player Coin Game (M-) 1400](./code/977.txt) <br />
+#997. [Rank of a Matrix (H+) 1900](./code/997.txt) <br />
 
 ---
 ### Stack
