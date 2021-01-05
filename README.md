@@ -16,6 +16,10 @@ Solution for binarySearch.io
 #984. [Unobstructed Buildings (E) 900](./code/984.txt) <br />
 
 ---
+### LinkedList
+#153. [Linked List to Integer(E) 800](./code/153.txt) <br />
+
+---
 ### Prefix Sum
 #702. [Remove Sublist to Reach Equilibrium (M) 1500](./code/702.txt) <br />
 #888. [Number of Operations to Decrement Target to Zero (M-) 1300](./code/888.txt) <br />
