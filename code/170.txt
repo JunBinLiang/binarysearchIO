@@ -1,0 +1,8 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int n) {
+        if(n==1||n==0)return 1;
+        return solve(n-1)*n;
+    }
+}
