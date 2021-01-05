@@ -1,0 +1,86 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        
+        int mn=Integer.MAX_VALUE;
+        int mx=Integer.MIN_VALUE;
+        int n=A.length;
+        int res=0;
+        int dp[]=new int[n];
+        
+        for(int i=0;i<A.length;i++){
+            mn=Math.min(mn,A[i]);
+            mx=Math.max(mx,A[i]);
+        }
+
+        Seg seg=new Seg(mn-k-10,mx+k+10);
+
+        for(int i=0;i<n;i++){
+            int cur=A[i];
+            int s=cur-k;
+            int e=cur+k;
+            int val=seg.query(s,e);
+            seg.update(cur,1+val);
+            res=Math.max(res,1+val);
+        }
+        return res;
+    }
+
+    class Seg{
+        long l,r;
+        int max=0;
+        Seg left=null,right=null;
+        public Seg(long l,long r){
+            this.l=l;
+            this.r=r;
+            this.max=0;
+        }
+        
+        public int query(long s,long e){
+            if(l==s&&r==e){
+                return this.max;
+            }
+            long mid=l+(r-l)/2; 
+            
+            
+            if(e<=mid){
+                if(left==null)return 0;
+                return left.query(s,e);
+            }
+            else if(s>=mid+1){
+                if(right==null)return 0;
+                return right.query(s,e);
+            }else{
+                int res=0;
+                if(left!=null)res=Math.max(res,left.query(s,mid));
+                if(right!=null)res=Math.max(res,right.query(mid+1,e));
+                return res;
+            }
+        }
+
+        public void update(long index,int val){
+            if(l==r&&l==index){
+                this.max=val;
+                return;
+            }
+            long mid=l+(r-l)/2;
+        
+            if(index<=mid){
+                if(left==null){
+                    left=new Seg(l,mid);
+                }
+                left.update(index,val);
+                this.max=Math.max(this.max,left.max);
+            }
+            else{
+                if(right==null){
+                    right=new Seg(mid+1,r);
+                }
+                right.update(index,val);
+                this.max=Math.max(this.max,right.max);
+            }
+           
+        }
+    }
+}
