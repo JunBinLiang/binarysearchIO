@@ -12,6 +12,7 @@ Solution for binarySearch.io
 #465. [Largest Gap (E-) 700](./code/465.txt) <br />
 #502. [Arithmetic Sequences (M-) 1200](./code/502.txt) <br />
 #591. [Set Split (M-) 1200](./code/591.txt) <br />
+#668. [Inversion Comparison (M-) 1300](./code/668.txt) <br />
 #960. [Maximize Binary String Score (E) 900](./code/960.txt) <br />
 #984. [Unobstructed Buildings (E) 900](./code/984.txt) <br />
 
