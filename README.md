@@ -160,6 +160,7 @@ Solution for binarySearch.io
 
 ---
 ### Ordered Map
+#664. [Minimum Adjacent Elements (H-) 1700](./code/664.txt) <br />
 #926. [Virtual Array (H-) 1600](./code/926.txt) <br />
 
 ---
