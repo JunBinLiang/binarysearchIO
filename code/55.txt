@@ -1,0 +1,34 @@
+import java.util.*;
+
+class Solution {
+    Map<String,Boolean>map=new HashMap<>();
+    public boolean solve(String A, String B, String C) {
+        if(A.length()+B.length()!=C.length())return false;
+        return dfs(A,B,C,0,0);
+    }
+
+    public boolean dfs(String A,String B,String C,int i,int j){
+        if(i>=A.length()&&j>=B.length())return true;
+        String state=i+","+j;
+        if(map.containsKey(state))return map.get(state);
+        boolean res=false;
+        
+        char cur=C.charAt(i+j);
+        if(i<A.length()){
+            if(A.charAt(i)==cur){
+                res=res|dfs(A,B,C,i+1,j);
+            }
+        }
+
+        if(j<B.length()){
+            if(B.charAt(j)==cur){
+                res=res|dfs(A,B,C,i,j+1);
+            }
+        }
+        map.put(state,res);
+        return res;
+    }
+}
+
+// 3 5
+// 3 5 =>
