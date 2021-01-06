@@ -94,7 +94,7 @@ Solution for binarySearch.io
 #49. [Sinking Islands (M) 1500](./code/49.txt) <br />
 #576. [Color Map (M) 1500](./code/576.txt) <br />
 #676. [Collecting Coins Sequel (H-) 1700](./code/676.txt) <br />
-#924. [Common Reachable Node (M-) 1400](./code/924.txt) <br />
+#927. [Common Reachable Node (M-) 1400](./code/927.txt) <br />
 #982. [Recursive Voting (M-) 1400](./code/982.txt) <br />
 
 ---
@@ -121,7 +121,7 @@ Solution for binarySearch.io
 #133. [Largest Binary Search Subtree in Nodes (H-) 1600](./code/133.txt) <br />
 #305. [Tree Traversal(M-) 1200](./code/305.txt) <br />
 #924. [Toggle Bitwise Expression (H) 1800 (Expression Tree)](./code/924.txt) <br />
-#927. [Tree with Distinct Parities(E) 900](./code/927.txt) <br />
+#930. [Tree with Distinct Parities(E) 900](./code/930.txt) <br />
 
 
 ---
