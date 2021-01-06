@@ -68,6 +68,7 @@ Solution for binarySearch.io
 #397. [K Unique String (M-) 1300](./code/397.txt) <br />
 #493. [Split List Into Strictly Increasing Chunks(H-) 1600](./code/493.txt) <br />
 #498. [Fleet of Palindromes (M) 1500](./code/498.txt) <br />
+#552. [Bob's Game (E) 800](./code/552.txt) <br />
 #598. [Furthest From Origin (E) 800](./code/598.txt) <br />
 #618. [Fibonacci Subset Sum (M) 1500](./code/618.txt) <br />
 #619. [Making List Values Equal (E) 900](./code/619.txt) <br />
