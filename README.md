@@ -41,6 +41,7 @@ Solution for binarySearch.io
 #217. [Longest Common Subsequence of Three String s (H) 1800](./code/217.txt) <br />
 #233. [Maximum Non-Adjacent Tree Sum (M) 1500](./code/233.txt) <br />
 #252. [Spiky Plants (H) 1800](./code/252.txt) <br />
+#345. [A* Student (H) 1800](./code/345.txt) <br />
 #401. [Copy Paste (M) 1500](./code/401.txt) <br />
 #425. [Split Product (M-) 1200](./code/425.txt) <br />
 #463. [Count Exact Sum (H-) 1700](./code/463.txt) <br />
