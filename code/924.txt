@@ -1,0 +1,153 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s) {
+        //hint:build a infix tree
+        Builder builder=new Builder();
+        Node root=builder.expTree(s);
+        int origin=getval(root);
+        
+        
+        int cost[]=dfs(root);
+        System.out.println(cost[0]+"  "+cost[1]);
+        
+        if(origin==0)return cost[1];
+        return cost[0];
+    }
+
+    public int[] dfs(Node root){//mincost to become [0,1]
+        char c=root.val;
+        if(root.left==null&&root.right==null){
+            if(c=='0'){
+                return new int[]{0,1};
+            }
+            else{
+                return new int[]{1,0};
+            }
+        }
+            
+        int l[]=dfs(root.left);
+        int r[]=dfs(root.right);
+        int res[]=new int[]{Integer.MAX_VALUE,Integer.MAX_VALUE};
+
+        if(c=='|'){//or
+            res[0]=Math.min(res[0],l[0]+r[0]);
+            res[0]=Math.min(res[0],1+l[1]+r[0]);//change
+            res[0]=Math.min(res[0],1+l[0]+r[1]);
+            res[0]=Math.min(res[0],1+l[0]+r[0]);
+
+
+            res[1]=Math.min(res[1],l[0]+r[1]);
+            res[1]=Math.min(res[1],l[1]+r[0]);
+            res[1]=Math.min(res[1],l[1]+r[1]);
+            res[1]=Math.min(res[1],1+l[1]+r[1]);
+
+        }
+        else{//and
+            res[0]=Math.min(res[0],l[0]+r[1]);
+            res[0]=Math.min(res[0],l[1]+r[0]);
+            res[0]=Math.min(res[0],l[0]+r[0]);
+            res[0]=Math.min(res[0],1+l[0]+r[0]);
+
+            res[1]=Math.min(res[1],l[1]+r[1]);
+            res[1]=Math.min(res[1],1+l[1]+r[0]);
+            res[1]=Math.min(res[1],1+l[0]+r[1]);
+            res[1]=Math.min(res[1],1+l[1]+r[1]);
+
+        }
+        return res;
+    }
+
+    public int getval(Node root){
+        if(root.left==null&&root.right==null){
+            return root.val-'0';
+        }
+        char c=root.val;
+        int l=getval(root.left);
+        int r=getval(root.right);
+
+        if(c=='|'){
+            return l|r;
+        }
+        else{
+            return l&r;
+        }
+    }
+
+    class Node {
+        char val;
+        Node left;
+        Node right;
+        Node() {this.val = ' ';}
+        Node(char val) { this.val = val; }
+        Node(char val, Node left, Node right) {
+          this.val = val;
+          this.left = left;
+          this.right = right;
+        }
+    }
+
+    class Builder {
+        public Node expTree(String s) {
+            Stack<Character>stack=new Stack<>();
+            Map<Character,Integer>map=new HashMap<>();
+            map.put('|',0);map.put('&',0);
+            map.put('*',1);map.put('/',1);
+            map.put('(',-1);
+            
+            StringBuilder str=new StringBuilder();
+            //convert infix to postfix
+            
+            for(int i=0;i<s.length();i++){
+                char c=s.charAt(i);
+                
+                if(Character.isDigit(c)){
+                    str.append(c+"");
+                }else{
+                    if(c=='('){
+                        stack.push(c);
+                    }
+                    else{
+                        if(c==')'){
+                            while(stack.size()>0&&stack.peek()!='('){
+                                str.append(stack.pop()+"");
+                            }
+                            stack.pop();
+                        }
+                        else{
+                            while(stack.size()>0&&map.get(c)<=map.get(stack.peek())){
+                                str.append(stack.pop()+"");
+                            }
+                            stack.push(c);
+                        }
+                    }
+                }
+            }
+            while(stack.size()>0)str.append(stack.pop()+"");
+            
+            return convert(str.toString());
+        }
+        
+        
+        public Node convert(String post){
+            //System.out.println(post);
+            Stack<Node>stack=new Stack<>();
+            for(int i=0;i<post.length();i++){
+                char c=post.charAt(i);
+                Node node=new Node(c);
+                if(Character.isDigit(c)){
+                
+                }else{
+                    Node right=stack.pop();
+                    Node left=stack.pop();
+                    node.left=left;
+                    node.right=right;
+                }
+                stack.push(node);
+            }
+            
+            while(stack.size()>1)stack.pop();
+            return stack.pop();
+        }
+    }   
+}
