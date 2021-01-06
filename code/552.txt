@@ -1,0 +1,12 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] nums) {
+        int cnt=0;
+        for(int i:nums){
+            if(i%2==1)cnt++;
+        }
+        if(cnt%2==1)return -1;
+        return cnt/2;
+    }
+}
