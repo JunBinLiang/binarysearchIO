@@ -31,6 +31,7 @@ Solution for binarySearch.io
 #170. [Factorial Factory(E-) 600](./code/170.txt) <br />
 #540. [ABC Subsequences (M+) 1600](./code/540.txt) <br />
 #574. [Unique Fractions (E) 1000](./code/574.txt) <br />
+#791. [Cut Rods for Profit (M-) 1400](./code/791.txt) <br />
 
 ---
 ### DP
