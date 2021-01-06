@@ -30,6 +30,7 @@ Solution for binarySearch.io
 ### Math
 #103. [Max Product of Two Numbers(E) 800](./code/103.txt) <br />
 #170. [Factorial Factory(E-) 600](./code/170.txt) <br />
+#338. [High Five (E) 800](./code/338.txt) <br />
 #540. [ABC Subsequences (M+) 1600](./code/540.txt) <br />
 #574. [Unique Fractions (E) 1000](./code/574.txt) <br />
 #791. [Cut Rods for Profit (M-) 1400](./code/791.txt) <br />
