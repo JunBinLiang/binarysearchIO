@@ -41,6 +41,7 @@ Solution for binarySearch.io
 ### DP
 #9. [Largest Sum of Non-Adjacent Numbers (M) 1500](./code/9.txt) <br />
 #55. [Zipped String (H-) 1700](./code/55.txt) <br />
+#126. [A Maniacal Walk (H-) 1600](./code/126.txt) <br />
 #174. [Sort String by Flipping (H-) 1600](./code/174.txt) <br />
 #205. [Longest Common Substring (M) 1500](./code/205.txt) <br />
 #213. [Dividing Station (H-) 1600](./code/213.txt) <br />
