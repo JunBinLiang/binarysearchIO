@@ -1,0 +1,32 @@
+import java.util.*;
+
+class Solution {
+    int mod=1000000007;
+    Map<String,Long>map=new HashMap<>();
+    int length,n;
+    public int solve(int length, int n) {
+        this.length=length;
+        this.n=n;
+        return (int)(dfs(0,n));
+    }
+
+    public long dfs(int cur,int step){
+        if(cur<0||cur>=length)return 0;
+        if(step==0){
+            if(cur==0)return 1;
+            return 0;
+        }
+        String state=cur+","+step;
+        if(map.containsKey(state))return map.get(state);
+
+        long res=0;
+        res+=dfs(cur,step-1);
+        res%=mod;
+        res+=dfs(cur+1,step-1);
+        res%=mod;
+        res+=dfs(cur-1,step-1);
+        res%=mod;
+        map.put(state,res);
+        return res;
+    }
+}
