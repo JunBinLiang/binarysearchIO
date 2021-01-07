@@ -1,0 +1,49 @@
+import java.util.*;
+
+class Solution {
+    List<String>res=new ArrayList<>();
+    List<String[]>list=new ArrayList<>();
+    public String[] solve(String s) {
+        
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(c=='['){
+                int j=i;
+                while(j<s.length()&&s.charAt(j)!=']')j++;
+                String sub=s.substring(i+1,j);
+                String A[]=sub.split("\\|");
+                for(String a:A)System.out.println(a);
+                list.add(A);
+                i=j;
+            }
+            else{
+                list.add(new String[]{c+""});
+            }
+        }
+
+        dfs(0,new ArrayList<>());
+
+        String ans[]=new String[res.size()];
+        for(int i=0;i<ans.length;i++){
+            ans[i]=res.get(i);
+        }
+        return ans;
+    }
+
+    public void dfs(int i,List<String>cur){
+        if(i>=list.size()){
+            StringBuilder str=new StringBuilder();
+            for(String s:cur)str.append(s);
+            res.add(str.toString());
+            return;
+        }
+
+        String A[]=list.get(i);
+        for(String s:A){
+            cur.add(s);
+            dfs(i+1,cur);
+            cur.remove(cur.size()-1);
+        }
+
+    }
+}
