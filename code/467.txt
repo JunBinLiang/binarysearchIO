@@ -1,0 +1,47 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A) {
+        Arrays.sort(A);
+        int n=A.length;
+        int mod=1000000007;
+
+        long sum=0;
+        long maxSum=0;
+        long res=0;
+        long pow[]=new long[n];
+        long pre[]=new long[n];
+        long post[]=new long[n];
+        long postsum=0;
+        pow[1]=1;
+        for(int i=2;i<pow.length;i++){
+            pow[i]=2*pow[i-1];
+            pow[i]%=mod;
+        }
+
+        for(int i=0;i<pow.length;i++){
+            sum+=pow[i];
+            sum%=mod;
+            pre[i]=sum;
+        } 
+
+        for(int i=post.length-1;i>=0;i--){
+            postsum=postsum*2+A[i];
+            postsum%=mod;
+            post[i]=postsum;
+        }       
+
+        for(int i=1;i<n;i++){
+            long min=A[i-1];
+            long minSum=(min*pre[n-(i)])%mod;
+            long add=post[i]-minSum;
+            if(add<0)add+=mod;
+            res+=add;
+            res%=mod;
+        }
+
+
+        return (int)(res);
+
+    }
+}
