@@ -1,0 +1,43 @@
+
+import java.util.*;
+
+class Solution {
+    char A[],B[];
+    int res=100;
+    public int solve(String s, String t) {
+        A=s.toCharArray();
+        B=t.toCharArray();
+        
+
+        dfs(A,B,0,0);
+        return res;
+    }
+
+    public void dfs(char A[],char B[],int index,int swap){
+        if(index>=A.length){
+            res=Math.min(res,swap);
+            return;
+        }
+
+        if(A[index]==B[index]){
+            dfs(A,B,index+1,swap);
+        }
+
+        for(int i=index+1;i<A.length;i++){
+            if(A[i]==B[index]){
+                swap(A,index,i);
+                dfs(A,B,index+1,swap+1);
+                swap(A,index,i);
+            }
+        }
+    }
+
+    public void swap(char A[],int i,int j){
+        char t=A[i];
+        A[i]=A[j];
+        A[j]=t;
+    }
+}
+
+//"tzuy"
+//"zytu"
