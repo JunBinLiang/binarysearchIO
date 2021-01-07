@@ -132,6 +132,7 @@ Solution for binarySearch.io
 ### Tree
 #133. [Largest Binary Search Subtree in Nodes (H-) 1600](./code/133.txt) <br />
 #305. [Tree Traversal(M-) 1200](./code/305.txt) <br />
+#367. [Longest Even Value Path (M-) 1400](./code/367.txt) <br />
 #924. [Toggle Bitwise Expression (H) 1800 (Expression Tree)](./code/924.txt) <br />
 #930. [Tree with Distinct Parities(E) 900](./code/930.txt) <br />
 
