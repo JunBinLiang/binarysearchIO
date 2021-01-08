@@ -80,6 +80,7 @@ Solution for binarySearch.io
 #618. [Fibonacci Subset Sum (M) 1500](./code/618.txt) <br />
 #619. [Making List Values Equal (E) 900](./code/619.txt) <br />
 #682. [Delete From the Ends and Reinsert to Target (M) 1500](./code/682.txt) <br />
+#748. [ Delete Repeated Characters with Costs (M-) 1300](./code/748.txt) <br />
 #751. [Largest Sum After K Negations (E) 900](./code/751.txt) <br />
 #764. [Sublists Containing Maximum and Minimum (H) 1800](./code/764.txt) <br />
 #855. [Equivalent Folded Sums (M) 1500](./code/855.txt) <br />
@@ -186,7 +187,7 @@ Solution for binarySearch.io
 
 ---
 ### Trie
-#748. [Maximum XOR Queries (H) 1800](./code/748.txt) <br />
+#750. [Maximum XOR Queries (H) 1800](./code/750.txt) <br />
 
 ---
 ### Fenwick Tree
