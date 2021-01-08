@@ -1,0 +1,30 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[][] A) {
+        int res=0;
+        Arrays.sort(A,(a,b)->{return a[0]-b[0];});
+        PriorityQueue<int[]>queue=new PriorityQueue<>((a,b)->{
+            return a[1]-b[1];
+        });
+        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->{
+            return b[2]-a[2];
+        });
+
+        pq.add(new int[]{-1,-1,0});
+
+        for(int i=0;i<A.length;i++){
+            while(queue.size()>0&&queue.peek()[1]<=A[i][0]){
+                pq.add(queue.poll());
+            }
+
+            int pair[]=A[i];
+            pair[2]+=pq.peek()[2];
+            res=Math.max(res,pair[2]);
+            queue.add(pair);
+        }
+
+        return res;
+
+    }
+}
