@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        int res=0;
+        int r=0;
+        for(int i:A)r+=i;
+        int l=0;
+        while(l<=r){
+            int mid=l+(r-l)/2;
+            if(check(A,mid,k)){
+                res=mid;
+                l=mid+1;
+            }
+            else{
+                r=mid-1;
+            }
+        }
+        return res;
+    }
+
+    public boolean check(int A[],int mid,int k){
+        int sum=0;
+        int cnt=0;
+
+        for(int i=0;i<A.length;i++){
+            sum+=A[i];
+            if(sum>=mid){
+                sum=0;
+                cnt++;
+            }
+        }
+
+        return cnt>=k;
+    }
+}
