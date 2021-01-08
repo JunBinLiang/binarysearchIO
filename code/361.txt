@@ -1,0 +1,14 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        int res=Integer.MAX_VALUE;
+        Arrays.sort(A);
+        for(int i=0;i<A.length;i++){
+            if(i+1<k)continue;
+            int dif=A[i]-A[i-k+1];
+            res=Math.min(res,dif);
+        }
+        return res;
+    }
+}
