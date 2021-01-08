@@ -121,6 +121,7 @@ Solution for binarySearch.io
 ---
 ### Graph
 #95. [Detecting an Odd Length Cycle(H-) 1700](./code/95.txt) <br />
+#156. [No New Friends (M-) 1100](./code/156.txt) <br />
 #220. [Edges that Disconnect the Graph (H) 1800](./code/220.txt) <br />
 #239. [Reverse Graph (M-) 1200](./code/239.txt) <br />
 #308. [Parity Jump(H) 1800](./code/308.txt) <br />
