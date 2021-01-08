@@ -19,6 +19,7 @@ Solution for binarySearch.io
 ---
 ### LinkedList
 #153. [Linked List to Integer(E) 800](./code/153.txt) <br />
+#662. [Linked List Jumps (E) 800](./code/662.txt) <br />
 
 ---
 ### Prefix Sum
