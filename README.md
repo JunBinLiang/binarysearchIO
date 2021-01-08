@@ -54,6 +54,7 @@ Solution for binarySearch.io
 #401. [Copy Paste (M) 1500](./code/401.txt) <br />
 #425. [Split Product (M-) 1200](./code/425.txt) <br />
 #463. [Count Exact Sum (H-) 1700](./code/463.txt) <br />
+#524. [Largest Equivalent Set of Pairs (H-) 1700](./code/524.txt) <br />
 #549. [Odd Longest Increasing Subsequence (H-) 1700](./code/549.txt) <br />
 #563. [Chain of Blocks (M) 1500](./code/563.txt) <br />
 #568. [Choose N (H) 1800](./code/568.txt) <br />
