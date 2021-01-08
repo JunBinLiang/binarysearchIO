@@ -1,0 +1,70 @@
+import java.util.*;
+
+class Solution {
+    Map<Integer,List<Integer>>map=new HashMap<>();
+    boolean visit[]=new boolean[100010];
+    int heights[]=new int[100010];
+    int dis1[]=new int[100010];
+    int dis2[]=new int[100010];
+    public int solve(int[][] edges, int s, int t) {
+        Arrays.fill(dis2,-1);
+        int res=0;
+        for(int pair[]:edges){
+            int a=pair[0],b=pair[1];
+            if(!map.containsKey(a))map.put(a,new ArrayList<>());
+            if(!map.containsKey(b))map.put(b,new ArrayList<>());
+            map.get(a).add(b);
+            map.get(b).add(a);
+        }
+        
+        bfs(s,dis1);
+        bfs(t,dis2);
+        dfs(s);
+
+        int catchDis=dis1[t];
+        if(catchDis==1)return 1;
+
+        for(int i=0;i<dis2.length;i++){
+            if(dis2[i]==-1)continue;
+            if(dis2[i]+1>=dis1[i]){//catch 
+                continue;
+            }
+            res=Math.max(res,2*(heights[i]+dis1[i])-1);
+        }
+
+        return res;
+    }
+
+    public int dfs(int root){
+        int mx=0;
+        List<Integer>childs=map.get(root);
+        for(int next:childs){
+            if(visit[next])continue;
+            visit[next]=true;
+            int h=dfs(next);
+            mx=Math.max(mx,h);
+        }
+        heights[root]=mx;
+        return 1+mx;
+    }
+
+    public void bfs(int s,int dis[]){
+        Queue<int[]>q=new LinkedList<>();
+        Set<Integer>set=new HashSet<>();
+        q.add(new int[]{s,0});
+        set.add(s);
+        while(q.size()!=0){
+            int pair[]=q.poll();
+            int parent=pair[0];int level=pair[1];
+            dis[parent]=level;
+            List<Integer>childs=map.get(parent);
+            for(int next:childs){
+                if(set.contains(next))continue;
+                set.add(next);
+                q.add(new int[]{next,level+1});
+            }
+        }
+    }
+}
+
+//0-1-2
