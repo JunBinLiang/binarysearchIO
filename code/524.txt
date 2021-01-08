@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+    Map<String,Integer>map=new HashMap<>();
+    public int solve(int[] A) {
+        int res=dfs(A,0,0);
+        res=Math.max(0,res);
+        return res/2;
+    }
+
+    public int dfs(int A[],int dif,int index){
+        if(index>=A.length){
+            if(dif==0)return 0;
+            return -10000000;
+        }
+        String state=dif+","+index;
+        if(map.containsKey(state))return map.get(state);
+
+        int cur=A[index];
+        int res=-10000000;
+        res=Math.max(res,dfs(A,dif,index+1));
+        res=Math.max(res,cur+dfs(A,dif-cur,index+1));
+        res=Math.max(res,cur+dfs(A,dif+cur,index+1));
+
+        map.put(state,res);
+        return res;
+    }
+}
