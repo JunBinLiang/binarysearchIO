@@ -8,6 +8,7 @@ Solution for binarySearch.io
 #326. [Longest Alliteration(E) 800](./code/326.txt) <br />
 #328. [Z Sum(E) 800](./code/328.txt) <br />
 #346. [K and -K (E) 800](./code/346.txt) <br />
+#361. [Largest and Smallest Difference (M-) 1100](./code/361.txt) <br />
 #433. [Swap Consecutive Pair of Even Numbers(E) 900](./code/433.txt) <br />
 #465. [Largest Gap (E-) 700](./code/465.txt) <br />
 #502. [Arithmetic Sequences (M-) 1200](./code/502.txt) <br />
