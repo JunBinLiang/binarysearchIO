@@ -173,6 +173,7 @@ Solution for binarySearch.io
 #304. [City Blocks (E) 900](./code/304.txt) <br />
 #659. [Repeated K-Length Substrings (E) 900](./code/659.txt) <br />
 #819. [Piece Grouping (M-) 1300](./code/819.txt) <br />
+#966. [Equivalent Pairs (E) 900](./code/966.txt) <br />
 
 ---
 ### Ordered Map
