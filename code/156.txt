@@ -1,0 +1,17 @@
+import java.util.*;
+
+class Solution {
+    public boolean solve(int n, int[][] friends) {
+        boolean visit[]=new boolean[n];
+        for(int pair[]:friends){
+            int v1=pair[0],v2=pair[1];
+            visit[v1]=true;
+            visit[v2]=true;
+        }
+        for(boolean has:visit){
+            if(!has)return false;
+        }
+        
+        return true;
+    }
+}
