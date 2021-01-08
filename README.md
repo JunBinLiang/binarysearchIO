@@ -98,6 +98,7 @@ Solution for binarySearch.io
 
 ---
 ### Binary Search
+#635. [Maximum of the Smallest Chunk (H-) 1600](./code/635.txt) <br />
 #733. [Maximize the Minimum Value After K Sublist Increments (M+) 1600](./code/733.txt) <br />
 #854. [Split List to Minimize Largest Sum (H-) 1700](./code/854.txt) <br />
 #925. [Minimize Absolute Difference of Three Numbers (M) 1500](./code/925.txt) <br />
