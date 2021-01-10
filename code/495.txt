@@ -1,0 +1,13 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A) {
+        int res=Integer.MIN_VALUE;
+        int mx=A[0];
+        for(int i=1;i<A.length;i++){
+            res=Math.max(res,mx+A[i]-i);
+            mx=Math.max(mx,A[i]+i);
+        }
+        return res;
+    }
+}
