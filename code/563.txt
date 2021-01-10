@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        Arrays.sort(A);
+        int res=0;
+        for(int i=0;i<A.length;i++){
+            int l=i,r=A.length-1;
+            int pos=-1;
+            while(l<=r){
+                int mid=l+(r-l)/2;
+                if(A[mid]+A[i]<=k){
+                    pos=mid;
+                    l=mid+1;
+                }
+                else{
+                    r=mid-1;
+                }
+            }
+            if(pos!=-1){
+                int size=pos-i+1;
+                res+=(1<<(size-1));
+            }
+        }
+        return res;
+    }
+}
+
+//0 1 2
