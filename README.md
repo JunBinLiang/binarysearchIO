@@ -61,7 +61,7 @@ Solution for binarySearch.io
 #524. [Largest Equivalent Set of Pairs (H-) 1700](./code/524.txt) <br />
 #529. [Job Scheduling to Maximize Profit (H-) 1700](./code/529.txt) <br />
 #549. [Odd Longest Increasing Subsequence (H-) 1700](./code/549.txt) <br />
-#563. [Chain of Blocks (M) 1500](./code/563.txt) <br />
+#561. [Chain of Blocks (M) 1500](./code/561.txt) <br />
 #568. [Choose N (H) 1800](./code/568.txt) <br />
 #577. [Maximal Expression (H) 1800](./code/577.txt) <br />
 #595. [Increasing Subsequences of Size K (H-) 1700](./code/595.txt) <br />
