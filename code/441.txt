@@ -1,0 +1,30 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s) {
+        int n=s.length();
+        StringBuilder str=new StringBuilder(s);
+        String rev=str.reverse().toString();
+        String combine=rev+"#"+s;
+
+        int pre[]=kmpPre(combine);
+
+        return n-pre[pre.length-1];
+
+    }
+    
+    public int[] kmpPre(String p){
+		int pre[]=new int[p.length()];
+		int l=0,r=1;
+		while(r<p.length()){
+			if(p.charAt(l)==p.charAt(r)){
+				pre[r]=l+1;
+				l++;r++;
+			}else{
+				if(l==0)r++;
+				else l=pre[l-1];
+			}
+		}
+		return pre;
+	}
+}
