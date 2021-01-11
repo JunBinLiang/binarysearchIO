@@ -55,6 +55,7 @@ Solution for binarySearch.io
 #213. [Dividing Station (H-) 1600](./code/213.txt) <br />
 #217. [Longest Common Subsequence of Three String s (H) 1800](./code/217.txt) <br />
 #233. [Maximum Non-Adjacent Tree Sum (M) 1500](./code/233.txt) <br />
+#241. [Dice Throw (M) 1500](./code/241.txt) <br />
 #252. [Spiky Plants (H) 1800](./code/252.txt) <br />
 #345. [A* Student (H) 1800](./code/345.txt) <br />
 #401. [Copy Paste (M) 1500](./code/401.txt) <br />
