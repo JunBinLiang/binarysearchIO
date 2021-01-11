@@ -75,6 +75,7 @@ Solution for binarySearch.io
 #806. [Playlist Count (H) 1800](./code/806.txt) <br />
 #811. [Split String Into K Palindromes (H) 1800](./code/811.txt) <br />
 #867. [Adjacent Square Sums (H) 1800](./code/867.txt) <br />
+#868. [Non-Adjacent Combination Sum (M) 1500](./code/868.txt) <br />
 #936. [Shortest Window Substring in Order (H) 1800](./code/936.txt) <br />
 #983. [Maximum Dropping Path Sum With Column Distance Cost (H-) 1700](./code/983.txt) <br />
 
