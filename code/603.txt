@@ -1,0 +1,70 @@
+import java.util.*;
+
+class Solution {
+    int dis[][][];
+    List<Integer>list;
+    Queue<int[]>q=new LinkedList<>();
+    Map<Integer,Integer>map=new HashMap<>();
+    public int solve(int[][] mat) {
+        int res=Integer.MAX_VALUE;
+        TreeSet<Integer>treeset=new TreeSet<>();
+        for(int i=0;i<mat.length;i++){
+            for(int j=0;j<mat[0].length;j++){
+                treeset.add(mat[i][j]);
+            }
+        }
+
+       
+        list=new ArrayList<>(treeset);
+        dis=new int[mat.length][mat[0].length][list.size()+1];
+
+        for(int i=0;i<list.size();i++){
+            map.put(list.get(i),i);
+        }
+
+        for(int i=0;i<dis.length;i++){
+            for(int j=0;j<dis[0].length;j++){
+                Arrays.fill(dis[i][j],Integer.MAX_VALUE);
+            }
+        }
+        
+        
+        for(int i=0;i<list.size();i++){
+            int id=i;
+            int height=list.get(i);
+            if(height<mat[0][0])continue;
+            dis[0][0][id]=height-mat[0][0];
+            q.add(new int[]{0,0,height});
+        }
+
+        while(q.size()!=0){
+            int pair[]=q.poll();
+            int r=pair[0],c=pair[1],height=pair[2];
+            add(mat,r,c,r+1,c,height);
+            add(mat,r,c,r-1,c,height);
+            add(mat,r,c,r,c+1,height);
+            add(mat,r,c,r,c-1,height);
+        }
+
+        for(int i=0;i<dis[0][0].length;i++){
+            res=Math.min(res,dis[mat.length-1][mat[0].length-1][i]);
+        }
+        return res;
+    }
+
+    public void add(int mat[][],int prer,int prec,int r,int c,int height){
+        if(r<0||c<0||r>=mat.length||c>=mat[0].length)return;
+
+        for(int i=0;i<list.size();i++){
+            int h=list.get(i);
+            int id=i;
+            if(h>height)break;
+            int dif=h-mat[r][c];
+            if(dif<0)continue;
+            if(dis[prer][prec][map.get(height)]+dif<dis[r][c][id]){
+                dis[r][c][id]=dis[prer][prec][map.get(height)]+dif;
+                q.add(new int[]{r,c,h});
+            }
+        }
+    }
+}
