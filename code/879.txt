@@ -1,0 +1,56 @@
+import java.util.*;
+
+/**
+ * public class Tree {
+ *   int val;
+ *   Tree left;
+ *   Tree right;
+ * }
+ */
+class Solution {
+    public Tree solve(Tree root) {
+        if(root==null)return null;
+        Map<Integer,List<Tree>>map=new HashMap<>();
+        int level=0;
+        Queue<Tree>q=new LinkedList<>();
+        q.add(root);
+        while(q.size()!=0){
+            int size=q.size();
+            map.put(level,new ArrayList<>());
+            for(int i=0;i<size;i++){
+                Tree top=q.poll();
+                map.get(level).add(top);
+                if(top.left!=null){
+                    q.add(top.left);
+                    top.left=null;
+                }
+                if(top.right!=null){
+                    q.add(top.right);
+                    top.right=null;
+                }
+            }
+            level++;
+        }
+
+        for(int i=1;i<map.size();i++){
+            List<Tree>pre=map.get(i-1);
+            List<Tree>cur=map.get(i);
+            int index=pre.size()-1;
+            int cnt=0;
+            for(int j=cur.size()-1;j>=0;j--){
+                Tree parent=pre.get(index);
+                if(cnt%2==0){
+                    parent.right=cur.get(j);
+                }
+                else{
+                    parent.left=cur.get(j);
+                    index--;
+                }
+                cnt++;
+            }
+
+        }
+
+        return root;
+    }
+}
