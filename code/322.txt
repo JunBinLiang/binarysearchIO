@@ -1,0 +1,80 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s) {
+        if(s.length()==0)return 0;
+        if(s.length()==1)return 1;
+        Manacher man=new Manacher();
+        int res=0;
+
+        for(int i=0;i<s.length()-1;i++){
+            String a=s.substring(0,i+1);
+            String b=s.substring(i+1);
+            StringBuilder rev1=new StringBuilder(a);
+            StringBuilder rev2=new StringBuilder(b);
+
+            String news=rev1.reverse().toString()+rev2.reverse().toString();
+            System.out.println(news);
+            res=Math.max(res,man.longest(news).length());
+        }
+        return res;
+    }
+}
+
+  
+class Manacher {
+    public String longest(String s) {
+        if(s.length()<2)return s; 
+        int max=0,index=0;
+        int p[];
+        int c=0,r=0;
+        LinkedList<Character>list=new LinkedList<>();
+        StringBuilder str=new StringBuilder();
+        str.append("^");
+        for(int i=0;i<s.length();i++){
+            str.append("#");
+            str.append(s.charAt(i)+"");
+        }
+        str.append("#$");
+        String ss=str.toString();
+        p=new int[str.toString().length()];
+        
+        //Manacher's 
+        for(int i=1;i<ss.length()-1;i++){
+            int mirror=2*c-i;
+            if(i<r){
+                p[i]=Math.min(r-i,p[mirror]);
+            }
+            int a=i-1-p[i];
+            int b=i+1+p[i];
+            while(a>=0&&b<ss.length()&&ss.charAt(a)==ss.charAt(b)){
+                a--;b++;
+                p[i]++;
+            }
+            if(i+p[i]>r){
+                r=i+p[i];
+                c=i;
+            }
+        }
+        for(int i=0;i<p.length;i++){
+            if(max<p[i]){
+                max=p[i];
+                index=i;
+            }
+        }
+
+        int left=0;
+        int right=0;
+        if(ss.charAt(index)=='#'){
+            left=(index-1)/2-1;
+            right=left+1;
+        }else{
+            left=index/2-1;
+            right=left;
+        }
+        while(left>=0&&right<s.length()&&s.charAt(left)==s.charAt(right)){
+            left--;right++;
+        }
+        return s.substring(left+1,right);
+    }
+}
