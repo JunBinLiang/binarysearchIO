@@ -1,0 +1,22 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        Arrays.sort(A);
+        int sum=0;
+        int res=Integer.MAX_VALUE;
+        Queue<Integer>q=new LinkedList<>();
+        
+        for(int i=0;i<A.length;i++){
+            sum+=A[i];q.add(A[i]);
+            if(q.size()<k)continue;
+
+            int mx=A[i];
+            int total=mx*k;
+            res=Math.min(res,total-sum);
+
+            sum-=q.poll();
+        }
+        return res;
+    }
+}
