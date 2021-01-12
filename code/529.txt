@@ -1,0 +1,58 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] nums) {
+        int res=0;
+        int A[]=new int[nums.length*2];
+        for(int i=0;i<nums.length;i++){
+            A[i]=nums[i];
+        }
+
+        for(int i=0;i<nums.length;i++){
+            A[i+nums.length]=nums[i];
+        }
+        
+        for(int i=0;i<nums.length;i++){
+            int n=nums.length;
+            int B[]=new int[n];
+            for(int j=0;j<n;j++){
+                B[j]=A[i+j];
+            }
+            LIS lis=new LIS();
+            res=Math.max(res,lis.solve(B));
+        }
+        return res;
+    }
+
+    //[5 4  |  7 1 2 3] 
+}
+
+class LIS {
+    public int solve(int[] A) {
+        int dp[]=new int[A.length];
+        Arrays.fill(dp,Integer.MAX_VALUE);
+        for(int i=0;i<A.length;i++){
+            bin(dp,A[i]);
+        }   
+        int res=0;
+        for(int i=0;i<dp.length;i++){
+            if(dp[i]!=Integer.MAX_VALUE)res=i+1;
+        }
+        return res;
+    }
+    
+    public void bin(int dp[],int val){
+        int l=0,r=dp.length-1;
+        int index=-1;
+        while(l<=r){
+            int mid=l+(r-l)/2;
+            if(val<=dp[mid]){
+                index=mid;
+                r=mid-1;
+            }else{
+                l=mid+1;
+            }
+        }
+        dp[index]=val;
+    }
+}
