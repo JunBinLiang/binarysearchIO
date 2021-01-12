@@ -75,6 +75,7 @@ Solution for binarySearch.io
 #677. [Maximum Points From Removals (H) 1800](./code/677.txt) <br />
 #689. [Costly Flight of Stairs (M) 1500](./code/689.txt) <br />
 #701. [Minimum Number of Flips to Have Alternating Values (H) 1800](./code/701.txt) <br />
+#765. [Consecutive Wins (M) 1500](./code/765.txt) <br />
 #806. [Playlist Count (H) 1800](./code/806.txt) <br />
 #811. [Split String Into K Palindromes (H) 1800](./code/811.txt) <br />
 #867. [Adjacent Square Sums (H) 1800](./code/867.txt) <br />
