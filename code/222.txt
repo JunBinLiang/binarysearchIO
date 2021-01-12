@@ -1,0 +1,58 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s, String t) {
+        int res=0;
+        int n=s.length();
+        int left[]=new int[n];int right[]=new int[n];
+        Map<Integer,Integer>map=new HashMap<>();
+        int j=0;
+        for(int i=0;i<s.length();i++){
+            if(j<t.length()){
+                if(s.charAt(i)==t.charAt(j))j++;
+            }
+            left[i]=j;
+
+            if(left[i]==t.length()){
+                res=Math.max(res,s.length()-i-1);
+            }
+        }
+        
+        
+        j=t.length()-1;
+        for(int i=s.length()-1;i>=0;i--){
+            if(j>=0){
+                if(s.charAt(i)==t.charAt(j))j--;
+            }
+            right[i]=(t.length()-j-1);
+
+            if(right[i]==t.length()){
+                res=Math.max(res,i);
+            }
+
+            if(!map.containsKey(right[i])){
+                map.put(right[i],i);
+            }
+        }
+
+        for(int i=0;i<s.length();i++){
+            int cnt=left[i];
+            if(cnt==t.length())break;
+            int need=t.length()-cnt;
+
+            int rightPos=map.get(need);
+
+            int remove=s.length()-(i+1)-(s.length()-rightPos);
+            res=Math.max(res,remove);
+            
+        }
+
+
+        return res;
+    }
+
+    public void print(int A[]){
+        for(int i:A)System.out.print(i+" ");
+        System.out.println();
+    }
+}
