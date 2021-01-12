@@ -1,0 +1,19 @@
+import java.util.*;
+
+class Solution {
+    Set<Integer>set=new HashSet<>();
+    public boolean solve(int[][] rooms) {
+        set.add(0);
+        dfs(rooms,0);
+        return set.size()==rooms.length;
+    }
+
+    public void dfs(int rooms[][],int cur){
+        int next[]=rooms[cur];
+        for(int c:next){
+            if(set.contains(c))continue;
+            set.add(c);
+            dfs(rooms,c);
+        }
+    }
+}
