@@ -105,7 +105,7 @@ Solution for binarySearch.io
 ---
 ### Stack
 #427. [Parentheses Grouping(E) 900](./code/427.txt) <br />
-
+#911. [Every Sublist Min Sum (M+) 1600](./code/911.txt) <br />
 
 ---
 ### Binary Search
