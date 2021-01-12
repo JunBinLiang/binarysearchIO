@@ -173,6 +173,7 @@ Solution for binarySearch.io
 
 ---
 ### Sliding Window
+#288. [Lego Towers (M-) 1300](./code/288.txt) <br />
 #347. [Adjacent Swaps to Group Ones (H-) 1700](./code/347.txt) <br />
 #541. [K Distinct Window (M-) 1300](./code/541.txt) <br />
 #800. [K-Distinct Sublists (H-) 1700](./code/800.txt) <br />
