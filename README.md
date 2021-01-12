@@ -65,6 +65,7 @@ Solution for binarySearch.io
 #463. [Count Exact Sum (H-) 1700](./code/463.txt) <br />
 #524. [Largest Equivalent Set of Pairs (H-) 1700](./code/524.txt) <br />
 #527. [Job Scheduling to Maximize Profit (H-) 1700](./code/527.txt) <br />
+#529. [Circular Longest Increasing Subsequence (H-) 1700](./code/529.txt) <br />
 #549. [Odd Longest Increasing Subsequence (H-) 1700](./code/549.txt) <br />
 #561. [Chain of Blocks (M) 1500](./code/561.txt) <br />
 #568. [Choose N (H) 1800](./code/568.txt) <br />
