@@ -5,6 +5,7 @@ Solution for binarySearch.io
 
 ---
 ### Array
+#222. [Maximum Removal Subsequence String (H-) 1600](./code/222.txt) <br />
 #326. [Longest Alliteration(E) 800](./code/326.txt) <br />
 #328. [Z Sum(E) 800](./code/328.txt) <br />
 #346. [K and -K (E) 800](./code/346.txt) <br />
