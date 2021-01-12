@@ -1,0 +1,77 @@
+import java.util.*;
+
+class Solution {
+    Map<Integer,List<Integer>>graph=new HashMap<>();
+    Map<Integer,Integer>map=new HashMap<>();
+    int start=Integer.MAX_VALUE;
+    Map<String,Integer>id=new HashMap<>();
+    Set<Integer>set=new HashSet<>();
+    int n;
+    public int[] solve(int[][] edges) {
+        if(edges.length==0)return new int[]{};
+        int res[]=new int[edges.length];
+
+        for(int pair[]:edges){
+            int v1=pair[0],v2=pair[1];
+            start=Math.min(start,Math.min(v1,v2));
+            if(!graph.containsKey(v1))graph.put(v1,new ArrayList<>());
+            if(!graph.containsKey(v2))graph.put(v2,new ArrayList<>());
+            graph.get(v1).add(v2);
+            graph.get(v2).add(v1);
+        }
+        n=graph.size();
+        dfs1(start);
+
+        set.add(start);
+        dfs2(-1,start);
+
+        
+        //get the result back
+        for(int i=0;i<res.length;i++){
+            int pair[]=edges[i];
+            int mn=Math.min(pair[0],pair[1]);
+            int mx=Math.max(pair[0],pair[1]);
+            String state=mn+","+mx;
+            res[i]=id.get(state);
+        }
+
+        return res;
+    }
+
+    public int dfs1(int root){
+        int cnt=0;
+        List<Integer>childs=graph.get(root);
+        map.put(root,0);
+
+        for(int next:childs){
+            if(map.containsKey(next))continue;
+            cnt+=dfs1(next);
+        }
+        map.put(root,cnt+1);
+        return cnt+1;
+    }
+
+    public void dfs2(int parent,int root){
+
+        List<Integer>childs=graph.get(root);
+        if(parent!=-1){
+            int mn=Math.min(parent,root);
+            int mx=Math.max(parent,root);
+            String state=mn+","+mx;
+
+
+            int rcount=map.get(root);
+            int pcount=n-map.get(root);
+            int res=(rcount)*pcount;
+
+            id.put(state,res);
+        }
+        
+        for(int next:childs){
+            if(set.contains(next))continue;
+            set.add(next);
+            dfs2(root,next);
+        }
+    }
+    
+}
