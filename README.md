@@ -104,6 +104,7 @@ Solution for binarySearch.io
 #764. [Sublists Containing Maximum and Minimum (H) 1800](./code/764.txt) <br />
 #855. [Equivalent Folded Sums (M) 1500](./code/855.txt) <br />
 #902. [Permute to Make List Larger (M-) 1300](./code/902.txt) <br />
+#923. [Largest Kth Value of List (M+) 1600](./code/923.txt) <br />
 #972. [Permute List to Make Largest Range Sum (M-) 1400](./code/972.txt) <br />
 #977. [Three Player Coin Game (M-) 1400](./code/977.txt) <br />
 #997. [Rank of a Matrix (H+) 1900](./code/997.txt) <br />
