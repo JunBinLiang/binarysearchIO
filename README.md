@@ -90,7 +90,7 @@ Solution for binarySearch.io
 ### Greedy
 #286. [Buying Cars (E) 800](./code/286.txt) <br />
 #397. [K Unique String (M-) 1300](./code/397.txt) <br />
-#493. [Split List Into Strictly Increasing Chunks(H-) 1600](./code/493.txt) <br />
+#491. [Split List Into Strictly Increasing Chunks(H-) 1600](./code/491.txt) <br />
 #498. [Fleet of Palindromes (M) 1500](./code/498.txt) <br />
 #552. [Bob's Game (E) 800](./code/552.txt) <br />
 #598. [Furthest From Origin (E) 800](./code/598.txt) <br />
