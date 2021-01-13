@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[][] mat, int k) {
+        int res=0;
+        int n=mat.length,m=mat[0].length;
+        int pre[][]=new int[n][m];
+        for(int col=0;col<m;col++){
+            int sum=0;
+            for(int row=0;row<n;row++){
+                sum+=mat[row][col];
+                pre[row][col]=sum;
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                //[i-j]
+                TreeSet<Integer>treeset=new TreeSet<>();
+                int sum=0;
+                for(int col=0;col<m;col++){//maximum subarray that is lass than k
+                    int single=pre[j][col]-pre[i][col]+mat[i][col];
+                    sum+=single;
+                    if(sum<=k){
+                        res=Math.max(res,sum);
+                    }
+                    Integer high=treeset.higher(sum-k-1);
+                    if(high!=null){
+                        res=Math.max(res,sum-high);
+                    }
+                    treeset.add(sum);
+                }
+            }
+        }
+
+
+
+        return res;
+    }
+}
