@@ -175,6 +175,7 @@ Solution for binarySearch.io
 #402. [Sum of Three Numbers Sequel (M) 1500](./code/402.txt) <br />
 #415. [Minimum Set of Pairs (M) 1500](./code/415.txt) <br />
 #589. [Large to Small Sort (E) 900](./code/589.txt) <br />
+#893. [Minimum Updates to Make Bitwise OR Equal to Target (M-) 1300](./code/893.txt) <br />
 #869. [Sublist with Largest Min-Length Product (H-) 1600](./code/869.txt) <br />
 
 ---
