@@ -27,6 +27,7 @@ Solution for binarySearch.io
 
 ---
 ### Prefix Sum
+#638. [Maximum Sum Rectangle with Condition (H) 1800](./code/638.txt) <br />
 #702. [Remove Sublist to Reach Equilibrium (M) 1500](./code/702.txt) <br />
 #888. [Number of Operations to Decrement Target to Zero (M-) 1300](./code/888.txt) <br />
 #929. [Index with Equal Left and Right Sums (E) 900](./code/929.txt) <br />
