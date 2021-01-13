@@ -1,0 +1,22 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A, int k) {
+        long res=0;
+        for(int i=1;i<A.length;i++){
+            int sum=A[i]+A[i-1];
+            if(sum<=k)continue;
+            int dif=sum-k;
+            res+=dif;
+            if(A[i]>=dif){
+                A[i]-=dif;
+            }
+            else{
+                A[i]=0;
+            }
+
+        }
+
+        return (int)(res%1000000007);
+    }
+}
