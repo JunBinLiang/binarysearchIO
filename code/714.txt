@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Solution {
+    public int solve(String s, String t) {
+        int res=1;
+        Map<Character,TreeSet<Integer>>map=new HashMap<>();
+
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(!map.containsKey(c))map.put(c,new TreeSet<>());
+            map.get(c).add(i);
+        }
+
+        int pre=-1;
+        for(int i=0;i<t.length();i++){
+            char c=t.charAt(i);
+            if(!map.containsKey(c))return -1;
+            TreeSet<Integer>tree=map.get(c);
+
+            Integer high=tree.higher(pre);
+            if(high==null){
+                i--;
+                pre=-1;
+                res++;
+            }
+            else{
+                pre=high;
+            }
+        }
+
+        return res;
+    }
+}
