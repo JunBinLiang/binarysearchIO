@@ -1,0 +1,54 @@
+import java.util.*;
+
+/**
+ * public class Tree {
+ *   int val;
+ *   Tree left;
+ *   Tree right;
+ * }
+ */
+class Solution {
+    int longest=0;
+    public int solve(Tree root) {
+        dfs(root);
+        return longest;
+    }
+
+    public int[] dfs(Tree root){//[increasing,decreasing]
+        if(root==null)return new int[]{0,0};
+
+        int res[]=new int[]{1,1};
+        int l[]=dfs(root.left);
+        int r[]=dfs(root.right);
+
+        if(root.left!=null){
+            if(root.val-root.left.val==1){
+                res[0]=Math.max(res[0],1+l[0]);
+            }
+            if(root.val-root.left.val==-1){
+                res[1]=Math.max(res[1],1+l[1]);
+            }
+        }
+        if(root.right!=null){
+            if(root.val-root.right.val==1){
+                res[0]=Math.max(res[0],1+r[0]);
+            }
+            if(root.val-root.right.val==-1){
+                res[1]=Math.max(res[1],1+r[1]);
+            }
+        }
+        if(root.left!=null&&root.right!=null){
+            if(root.left.val-root.val==1&&root.val-root.right.val==1){
+                longest=Math.max(longest,1+l[1]+r[0]);
+            }
+            if(root.right.val-root.val==1&&root.val-root.left.val==1){
+                longest=Math.max(longest,1+l[0]+r[1]);
+            }
+        }
+
+
+        longest=Math.max(longest,Math.max(res[0],res[1]));
+        return res;
+
+    }
+}
