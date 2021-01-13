@@ -1,0 +1,30 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int n, int total, int k) {
+        long l=Integer.MIN_VALUE;
+        long r=Integer.MAX_VALUE;
+        long peek=-1;
+        long all=0;
+        while(l<=r){
+            long mid=l+(r-l)/2;
+            long start1=mid-k;
+            long start2=mid-(n-k-1);
+
+            long sum1=(start1+mid)*(k+1)/2;
+            long sum2=(start2+mid-1)*(n-k-1)/2;
+            if(sum1+sum2<=total){
+                all=sum1+sum2;
+                peek=mid;
+                l=mid+1;
+            }
+            else{
+                r=mid-1;
+            }
+
+        }
+        long remain=total-all;
+
+        return (int)(peek+(remain/n));
+    }
+}
