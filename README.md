@@ -92,6 +92,7 @@ Solution for binarySearch.io
 #498. [Fleet of Palindromes (M) 1500](./code/498.txt) <br />
 #552. [Bob's Game (E) 800](./code/552.txt) <br />
 #598. [Furthest From Origin (E) 800](./code/598.txt) <br />
+#606. [Making Pairwise Adjacent Sums Small (M) 1500](./code/606.txt) <br />
 #618. [Fibonacci Subset Sum (M) 1500](./code/618.txt) <br />
 #619. [Making List Values Equal (E) 900](./code/619.txt) <br />
 #682. [Delete From the Ends and Reinsert to Target (M) 1500](./code/682.txt) <br />
