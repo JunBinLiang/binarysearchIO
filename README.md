@@ -39,6 +39,7 @@ Solution for binarySearch.io
 #338. [High Five (E) 800](./code/338.txt) <br />
 #378. [Domino Placement (E) 900](./code/378.txt) <br />
 #467. [Subsequence Widths (H) 1800](./code/467.txt) <br />
+#516. [Palindrome Count (E) 1000](./code/516.txt) <br />
 #540. [ABC Subsequences (M+) 1600](./code/540.txt) <br />
 #574. [Unique Fractions (E) 1000](./code/574.txt) <br />
 #620. [Paying Workers With Coins (M+) 1600](./code/620.txt) <br />
