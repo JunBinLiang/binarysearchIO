@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    Map<Integer,Integer>map=new HashMap<>();
+    public int solve(int n) {
+        
+        int res=dfs(n);
+        return res;
+    }
+
+    public int dfs(int n){
+        if(n<3)return n;
+        if(map.containsKey(n))return map.get(n);
+
+        int res=Integer.MAX_VALUE;
+
+        // divide 3, divide 2, minums 1
+        int mod=n%3;
+        if(n%2==1){
+            res=Math.min(res,2+dfs((n-1)/2));
+        }
+        else{
+            res=Math.min(res,1+dfs(n/2));
+        }
+
+
+        res=Math.min(res,1+mod+dfs((n-mod)/3));
+
+
+        map.put(n,res);
+        return res;
+    }
+
+
+    //0 1 2 
+}
