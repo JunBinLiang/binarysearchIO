@@ -79,6 +79,7 @@ Solution for binarySearch.io
 #765. [Consecutive Wins (M) 1500](./code/765.txt) <br />
 #806. [Playlist Count (H) 1800](./code/806.txt) <br />
 #811. [Split String Into K Palindromes (H) 1800](./code/811.txt) <br />
+#842. [Number of Decrements to Reach Zero (H-) 1700](./code/842.txt) <br />
 #867. [Adjacent Square Sums (H) 1800](./code/867.txt) <br />
 #868. [Non-Adjacent Combination Sum (M) 1500](./code/868.txt) <br />
 #936. [Shortest Window Substring in Order (H) 1800](./code/936.txt) <br />
