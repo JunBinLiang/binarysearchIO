@@ -1,3 +1,6 @@
+Query and add  are in sorted order!!
+
+
 import java.util.*;
 
 class Solution {
