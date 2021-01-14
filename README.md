@@ -250,3 +250,8 @@ Solution for binarySearch.io
 ### Game
 #195. [Candy Race (H-) 1700](./code/195.txt) <br />
 #769. [Tag Game in a Tree (H) 1800](./code/769.txt) <br />
+
+---
+### Convex Hull
+#422. [Outstanding Move Sequel (H+) 2600](./code/422.txt) <br />
+
