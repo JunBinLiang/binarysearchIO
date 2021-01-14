@@ -1,6 +1,7 @@
 # BinarySearch.IO
 Solution for binarySearch.io
-
+<br/>
+Due to problem number is changing continuously, I do not use problem id now!
 
 
 ---
@@ -19,6 +20,7 @@ Solution for binarySearch.io
 #668. [Inversion Comparison (M-) 1300](./code/668.txt) <br />
 #960. [Maximize Binary String Score (E) 900](./code/960.txt) <br />
 #984. [Unobstructed Buildings (E) 900](./code/984.txt) <br />
+[Social Distancing (E) 900](./code/Social-Distancing.txt.txt) <br />
 
 ---
 ### LinkedList
