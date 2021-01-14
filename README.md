@@ -148,7 +148,7 @@ Solution for binarySearch.io
 #220. [Edges that Disconnect the Graph (H) 1800](./code/220.txt) <br />
 #239. [Reverse Graph (M-) 1200](./code/239.txt) <br />
 #308. [Parity Jump(H) 1800](./code/308.txt) <br />
-#422. [Country Roads (H-) 1700](./code/422.txt) <br />
+#420. [Country Roads (H-) 1700](./code/420.txt) <br />
 #466. [Longest Path in a Graph (H-) 1700](./code/466.txt) <br />
 #603. [Hill Maker (M+) 1600](./code/603.txt) <br />
 #828. [Walled Off (H) 1800](./code/828.txt) <br />
