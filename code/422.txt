@@ -1,0 +1,140 @@
+import java.util.*;
+
+class Solution {
+    public int solve(int[] A) {
+        if(A.length==0)return 0;
+        ConvexHullTrick1 convex1=new ConvexHullTrick1();
+        ConvexHullTrick convex2=new ConvexHullTrick();
+        int n=A.length;
+        int mod=1000000007;
+        long res=-10000000000000000l;
+        long pre[]=new long[n];
+        long sum=0;
+        long total=0;
+        //transform into muti linear line
+        for(int i=0;i<n;i++){
+            sum+=A[i];
+            pre[i]=sum;
+            total+=A[i]*(i+1);
+        }
+
+       
+        //fix l, move to right
+        for(int l=n-1;l>=0;l--){
+            Line line=new Line(l,-pre[l]);
+            convex1.add(line);
+            long left=pre[l]-A[l]*l;
+            res=Math.max(res,left+convex1.query(A[l]));
+        }
+
+
+
+        //fix r,move to left
+        for(int r=0;r<n;r++){
+            Line line=new Line(r,-get(pre,r-1));
+            convex2.add(line);
+            long right=get(pre,r-1)-A[r]*r;
+            res=Math.max(res,right+convex2.query(A[r]));
+        }
+
+       
+
+        return (int)((res+total)%mod);
+    }
+
+    public long get(long pre[],int i){
+        if(i<0)return 0;
+        return pre[i];
+    }
+}
+//nums = [4,2,3,5]
+
+
+class ConvexHullTrick1
+{
+    int size=0;
+    Line hull[]=new Line[100010];
+    
+
+    public boolean isBad(int l1,int l2,int l3)
+    {
+        double left=1.0*(hull[l3].b-hull[l1].b)/(hull[l1].m-hull[l3].m);
+        double right=1.0*(hull[l1].b-hull[l2].b)/(hull[l2].m-hull[l1].m);
+        return left>=right;
+    }
+    
+    public void add(Line line)
+    {
+        hull[size++]=line;
+        while(size>2&&isBad(size-3,size-2,size-1))
+        {
+            hull[size-2]=hull[size-1];
+            --size;
+        }
+    }
+    public long query(long x)
+    {
+        int l=0,r=size-1;
+        while(l<r)
+        {
+            int m=(l+r)/2;
+            if(hull[m].get(x)<=hull[m+1].get(x))
+                l=m+1;
+            else
+                r=m;
+        }
+        return hull[l].get(x);
+    }
+}
+
+
+class ConvexHullTrick
+{
+    int size=0;
+    Line hull[]=new Line[100010];
+    
+
+    public boolean isBad(int l1,int l2,int l3)
+    {
+        double left=1.0*(hull[l3].b-hull[l1].b)/(hull[l1].m-hull[l3].m);
+        double right=1.0*(hull[l1].b-hull[l2].b)/(hull[l2].m-hull[l1].m);
+        return left<right;
+    }
+    
+    public void add(Line line)
+    {
+        hull[size++]=line;
+        while(size>2&&isBad(size-3,size-2,size-1))
+        {
+            hull[size-2]=hull[size-1];
+            --size;
+        }
+    }
+    public long query(long x)
+    {
+        int l=0,r=size-1;
+        while(l<r)
+        {
+            int m=(l+r)/2;
+            if(hull[m].get(x)<=hull[m+1].get(x))
+                l=m+1;
+            else
+                r=m;
+        }
+        return hull[l].get(x);
+    }
+}
+
+class Line{
+    long m,b;
+    public Line(long m,long b){
+        this.m=m;
+        this.b=b;
+    }
+
+    public long get(long x){
+        return m*x+b;
+    }
+}
+
+
