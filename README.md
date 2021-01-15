@@ -81,6 +81,7 @@ Due to problem number is changing continuously, I do not use problem's id in the
 #689. [Costly Flight of Stairs (M) 1500](./code/689.txt) <br />
 #701. [Minimum Number of Flips to Have Alternating Values (H) 1800](./code/701.txt) <br />
 #765. [Consecutive Wins (M) 1500](./code/765.txt) <br />
+#768. [Double String Concatenation (M+) 1600](./code/768.txt) <br />
 #806. [Playlist Count (H) 1800](./code/806.txt) <br />
 #811. [Split String Into K Palindromes (H) 1800](./code/811.txt) <br />
 #842. [Number of Decrements to Reach Zero (H-) 1700](./code/842.txt) <br />
