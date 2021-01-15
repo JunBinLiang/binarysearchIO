@@ -1,0 +1,51 @@
+By observation, a path that connects 3 point, there is always 1 hub spot that calculate 3 times
+
+import java.util.*;
+
+class Solution {
+    Queue<int[]>q=new LinkedList<>();
+    public int solve(int[][] mat, int row, int col, int erow0, int ecol0, int erow1, int ecol1) {
+        int res=Integer.MAX_VALUE;
+        int d1[][]=bfs(mat,row,col);
+        int d2[][]=bfs(mat,erow0,ecol0);
+        int d3[][]=bfs(mat,erow1,ecol1);
+
+        for(int i=0;i<mat.length;i++){
+            for(int j=0;j<mat[0].length;j++){
+                res=Math.min(res,d1[i][j]+d2[i][j]+d3[i][j]-mat[i][j]*2);
+            }
+        }
+
+
+        return res;
+    }
+
+     public int[][] bfs(int mat[][],int sr,int sc){
+        int n=mat.length,m=mat[0].length;
+        int dis[][]=new int[n][m];
+        for(int i=0;i<dis.length;i++){
+            Arrays.fill(dis[i],Integer.MAX_VALUE);
+        }
+
+        dis[sr][sc]=mat[sr][sc];
+        q.add(new int[]{sr,sc});
+        while(q.size()!=0){
+            int pair[]=q.poll();
+            int i=pair[0],j=pair[1];
+            add(mat,dis,i,j,i+1,j);
+            add(mat,dis,i,j,i-1,j);
+            add(mat,dis,i,j,i,j+1);
+            add(mat,dis,i,j,i,j-1);
+        }
+
+        return dis;
+    }
+
+    public void add(int mat[][],int dis[][],int r,int c,int i,int j){
+        if(i<0||j<0||i>=mat.length||j>=mat[0].length)return;
+        if(dis[r][c]+mat[i][j]<dis[i][j]){
+            dis[i][j]=dis[r][c]+mat[i][j];
+            q.add(new int[]{i,j});
+        }
+    }
+}
