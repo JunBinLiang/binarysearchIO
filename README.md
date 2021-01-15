@@ -158,6 +158,8 @@ Due to problem number is changing continuously, I do not use problem's id in the
 #881. [Logically Consistent Book (H+) 1900](./code/881.txt) <br />
 #894. [Tree Detection (M) 1500](./code/894.txt) <br />
 #950. [Minimum Starting Nodes to Visit Graph (M-) 1400](./code/950.txt) <br />
+#950. [Pick-Up-Gold-in-Two-Locations (H+) 1900](./code/Pick-Up-Gold-in-Two-Locations.txt) <br />
+
 
 ---
 ### Tree
