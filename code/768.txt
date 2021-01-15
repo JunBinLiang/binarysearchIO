@@ -1,0 +1,56 @@
+import java.util.*;
+
+class Solution {
+    int dp[][];
+    public int solve(String s) {
+        int res=s.length();
+        int n=s.length();
+
+        //abcdw
+        for(int i=0;i<n-1;i++){
+            String left=s.substring(0,i+1);
+            String right=s.substring(i+1);
+            res=Math.min(res,get(left,right));
+        }
+        return res;
+    }
+
+    public int get(String s,String t){
+        dp=new int[s.length()][t.length()];
+        for(int i=0;i<dp.length;i++){
+            Arrays.fill(dp[i],-1);
+        }
+        
+        int res = dfs(s,t,0,0);
+        return res;
+    }
+
+     
+    public int dfs(String s,String t,int i,int j){
+        if(i>=s.length()||j>=t.length()){
+            if(i>=s.length()){
+                return t.length()-j;//delete
+            }
+            else{
+                return s.length()-i;
+            }
+        }
+        if(dp[i][j]!=-1)return dp[i][j];
+        int res=Integer.MAX_VALUE;
+
+        char c1=s.charAt(i);
+        char c2=t.charAt(j);
+
+        if(c1==c2){
+            res=Math.min(res,dfs(s,t,i+1,j+1));
+        }
+        else{
+            res=Math.min(res,1+dfs(s,t,i,j+1));
+            res=Math.min(res,1+dfs(s,t,i+1,j));
+            res=Math.min(res,1+dfs(s,t,i+1,j+1));
+        }
+
+        dp[i][j]=res;
+        return res;
+    }
+}
