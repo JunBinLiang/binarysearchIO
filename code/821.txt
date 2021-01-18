@@ -1,0 +1,178 @@
+思路：现tarjan 把有有环变成无环
+
+import java.util.*;
+
+class Solution {
+    //idea: make the cyclic graph to acyclic
+    //connect fromt one tree to the root of other tree
+    List<Integer>adjecent[];//Set<Integer>set=new HashSet<>();
+    int dis[];int t=1;
+    int low[];
+    int assign[];
+    int ssc=0;
+    int mn=Integer.MAX_VALUE;int min=Integer.MAX_VALUE;
+    Map<Integer,List<Integer>>map=new HashMap<>();//[group,List(members)]
+    Map<Integer,Node>nodes=new HashMap<>();
+    
+    public int solve(int[] A, int[] B, int[][] edges) {
+        int res=0;
+        int n=A.length;
+        dis=new int[n];
+        low=new int[n];
+        assign=new int[n];
+        adjecent=new ArrayList[n];
+        
+        for(int i=0;i<adjecent.length;i++){
+            adjecent[i]=new ArrayList<>();
+        }
+        for(int pair[]:edges){
+            int v1=pair[0],v2=pair[1];
+            adjecent[v1].add(v2);
+        }
+        //////////////////////////////////////
+
+
+        for(int i=0;i<n;i++){
+            if(dis[i]==0)tarjan(new HashSet<>(),new Stack<>(),i);
+        }
+
+        
+        //grouping
+        for(int i=0;i<assign.length;i++){
+            if(!map.containsKey(assign[i]))map.put(assign[i],new ArrayList<>());
+            map.get(assign[i]).add(i);
+        }
+
+        
+
+
+        
+        Map<Integer,Integer>in=new HashMap<>();
+        for(Integer group:map.keySet()){
+            List<Integer>members=map.get(group);
+            int from=Integer.MAX_VALUE,to=Integer.MAX_VALUE;
+            for(int member:members){
+                from=Math.min(from,A[member]);
+                to=Math.min(to,B[member]);
+            }
+            Node node=new Node(group,from,to);
+            nodes.put(group,node);
+            in.put(group,0);
+        }
+
+        //System.out.println(map);
+        
+        for(int i=0;i<n;i++){
+            List<Integer>childs=adjecent[i];
+            int v1=assign[i];
+            for(int next:childs){
+                int v2=assign[next];
+                if(v1!=v2){
+                    nodes.get(v1).childs.add(v2);
+                    in.put(v2,1);
+                }
+            }
+        }
+
+
+
+        dfs2(nodes.get(assign[0]));
+
+        int cnt=0;
+        PriorityQueue<Integer>pq=new PriorityQueue<>();
+        for(Integer v:in.keySet()){
+            if(in.get(v)==0){//root
+
+                mn=Integer.MAX_VALUE;
+                dfs1(nodes.get(v));
+                cnt++;
+                if(v!=assign[0]){
+                    res+=nodes.get(v).to;
+                    pq.add(mn);
+                }
+                else{
+                    
+                }
+            }
+        }
+
+        //System.out.println(min);
+
+        if(pq.size()==0)return 0;
+        if(min<pq.peek()){
+            res+=((pq.size())*min);
+        }
+        else{
+            res+=((pq.size()-1)*pq.peek());
+            res+=min;
+        }
+
+        
+        return res;
+    }
+
+    public void dfs1(Node node){
+        mn=Math.min(mn,node.from);
+        Set<Integer>childs=node.childs;
+        for(int nextid:childs){
+            dfs1(nodes.get(nextid));
+        }
+    }
+
+     public void dfs2(Node node){
+        min=Math.min(min,node.from);
+        Set<Integer>childs=node.childs;
+        for(int nextid:childs){
+            dfs2(nodes.get(nextid));
+        }
+    }
+
+
+    public void print(int A[]){
+        for(int i:A){
+            System.out.print(i+" ");
+        }
+        System.out.println();
+    }
+
+    
+    public void tarjan(Set<Integer>set,Stack<Integer>stack,int root){
+		List<Integer>childs=adjecent[root];
+		dis[root]=low[root]=t;
+
+		set.add(root);
+		stack.push(root);
+		t++;
+		
+		//core for tarjan
+		for(int c:childs){
+			if(dis[c]==0){
+				tarjan(set,stack,c);
+				low[root]=Math.min(low[root],low[c]);
+			}else if(set.contains(c)){
+				low[root]=Math.min(low[root],dis[c]);
+			}
+		}
+		//decide where each strong connect component belong
+		if(low[root]==dis[root]){//start
+			ssc++;
+			int v=-1;
+			while(v!=root){
+				v=stack.pop();
+				assign[v]=ssc;
+                set.remove(v);
+			}
+		}
+	}
+   
+}
+
+class Node{
+    int from,to,id;
+    Set<Integer>childs=new HashSet<>();
+    public Node(int id,int from,int to){
+        this.id=id;
+        this.from=from;
+        this.to=to;
+    }
+}
