@@ -1,5 +1,6 @@
 # BinarySearch.IO
-Solution for binarySearch.io
+
+Solution for binarySearch.com
 <br/><br/>
 Due to problem number is changing continuously, I do not use problem's id in the future!
 
